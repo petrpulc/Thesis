@@ -1,0 +1,31 @@
+\select@language {czech}
+\select@language {UKenglish}
+\select@language {UKenglish}
+\select@language {UKenglish}
+\contentsline {subsection}{Citation of this thesis}{viii}{section*.1}
+\contentsline {chapter}{Introduction}{1}{chapter*.5}
+\contentsline {chapter}{Analysis and Design}{3}{chapter*.6}
+\contentsline {section}{Requirements specification}{3}{section*.7}
+\contentsline {subsection}{Functional requirements}{3}{section*.8}
+\contentsline {subsection}{Non-Functional requirements}{4}{section*.9}
+\contentsline {section}{Use cases}{4}{section*.10}
+\contentsline {section}{Structure of application}{5}{section*.11}
+\contentsline {section}{Authorization}{5}{section*.12}
+\contentsline {subsection}{OAuth 2.0}{7}{section*.13}
+\contentsline {section}{NARRA}{9}{section*.14}
+\contentsline {subsection}{NARRA API}{9}{section*.15}
+\contentsline {chapter}{Adobe Premiere Pro}{11}{chapter*.16}
+\contentsline {section}{Overview}{11}{section*.17}
+\contentsline {section}{History}{12}{section*.18}
+\contentsline {section}{Software Development Kit}{12}{section*.19}
+\contentsline {subsection}{Importer}{12}{section*.20}
+\contentsline {subsection}{Exporter}{12}{section*.21}
+\contentsline {chapter}{Analysis}{13}{chapter*.22}
+\contentsline {section}{Requirements}{13}{section*.23}
+\contentsline {section}{Communication with NARRA API}{13}{section*.24}
+\contentsline {subsection}{Libcurl}{13}{section*.25}
+\contentsline {chapter}{Implementation}{15}{chapter*.26}
+\contentsline {chapter}{Conclusion}{17}{chapter*.27}
+\contentsline {chapter}{Bibliography}{19}{section*.29}
+\contentsline {appendix}{\chapternumberline {A}Acronyms}{21}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Contents of enclosed CD}{23}{appendix.B}

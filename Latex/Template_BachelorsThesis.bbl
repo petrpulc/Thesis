@@ -1,0 +1,36 @@
+\begin{thebibliography}{1}
+\providecommand{\biburl}[1]{\textless\url{#1}\textgreater}
+\providecommand{\urlprefix}{Available at WWW: }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\eprint}[2][]{\biburl{#2}}
+
+\bibitem{oauthdesc}
+Google: Using OAuth 2.0 for Installed Applications --- Google Accounts ----
+  Google Developers. 2014, [Online; accessed 29-March-2015].
+\urlprefix\biburl{https://developers.google.com/accounts/docs/OAuth2InstalledApp}
+
+\bibitem{bbc}
+Incorporated, A.~S.: Adobe Creative Suite 3 Production Premium Wins in
+  Broadcasting. 2007, [Online; accessed 28-March-2015].
+\urlprefix\biburl{https://www.adobe.com/aboutadobe/pressroom/pressreleases/200704/041607BBC.html}
+
+\bibitem{cnn}
+mediasilo: Editing Wars: Adobe Premiere vs Final Cut vs Avid. 2013, [Online;
+  accessed 28-March-2015].
+\urlprefix\biburl{http://blog.mediasilo.com/editing-wars}
+
+\bibitem{adobe}
+Wikipedia: Adobe Premiere Pro --- Wikipedia{,} The Free Encyclopedia. 2015,
+  [Online; accessed 26-March-2015].
+\urlprefix\biburl{https://en.wikipedia.org/wiki/Adobe_Premiere_Pro}
+
+\bibitem{oauth}
+Wikipedia: OAuth --- Wikipedia{,} The Free Encyclopedia. 2015, [Online;
+  accessed 29-March-2015].
+\urlprefix\biburl{https://en.wikipedia.org/wiki/OAuth}
+
+\end{thebibliography}
