@@ -1,6 +1,6 @@
 \BOOKMARK [2][-]{section*.1}{Citation of this thesis}{}% 1
 \BOOKMARK [0][-]{chapter*.5}{Introduction}{}% 2
-\BOOKMARK [0][-]{chapter*.6}{Analysis and Design}{}% 3
+\BOOKMARK [0][-]{chapter*.6}{Analysis}{}% 3
 \BOOKMARK [1][-]{section*.7}{Requirements specification}{chapter*.6}% 4
 \BOOKMARK [2][-]{section*.8}{Functional requirements}{section*.7}% 5
 \BOOKMARK [2][-]{section*.9}{Non-Functional requirements}{section*.7}% 6
@@ -8,20 +8,21 @@
 \BOOKMARK [1][-]{section*.11}{Structure of application}{chapter*.6}% 8
 \BOOKMARK [1][-]{section*.12}{Authorization}{chapter*.6}% 9
 \BOOKMARK [2][-]{section*.13}{OAuth 2.0}{section*.12}% 10
-\BOOKMARK [1][-]{section*.14}{NARRA}{chapter*.6}% 11
-\BOOKMARK [2][-]{section*.15}{NARRA API}{section*.14}% 12
-\BOOKMARK [0][-]{chapter*.16}{Adobe Premiere Pro}{}% 13
-\BOOKMARK [1][-]{section*.17}{Overview}{chapter*.16}% 14
-\BOOKMARK [1][-]{section*.18}{History}{chapter*.16}% 15
-\BOOKMARK [1][-]{section*.19}{Software Development Kit}{chapter*.16}% 16
-\BOOKMARK [2][-]{section*.20}{Importer}{section*.19}% 17
-\BOOKMARK [2][-]{section*.21}{Exporter}{section*.19}% 18
-\BOOKMARK [0][-]{chapter*.22}{Analysis}{}% 19
-\BOOKMARK [1][-]{section*.23}{Requirements}{chapter*.22}% 20
-\BOOKMARK [1][-]{section*.24}{Communication with NARRA API}{chapter*.22}% 21
-\BOOKMARK [2][-]{section*.25}{Libcurl}{section*.24}% 22
-\BOOKMARK [0][-]{chapter*.26}{Implementation}{}% 23
-\BOOKMARK [0][-]{chapter*.27}{Conclusion}{}% 24
-\BOOKMARK [0][-]{section*.29}{Bibliography}{}% 25
-\BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 26
-\BOOKMARK [0][-]{appendix.B}{Contents of enclosed CD}{}% 27
+\BOOKMARK [1][-]{section*.14}{Paradigm shift}{chapter*.6}% 11
+\BOOKMARK [2][-]{section*.15}{Adobe Premiere Pro CC}{section*.14}% 12
+\BOOKMARK [1][-]{section*.16}{ExtendScript}{chapter*.6}% 13
+\BOOKMARK [2][-]{section*.17}{ECMAScript}{section*.16}% 14
+\BOOKMARK [1][-]{section*.18}{NARRA}{chapter*.6}% 15
+\BOOKMARK [2][-]{section*.19}{NARRA API}{section*.18}% 16
+\BOOKMARK [0][-]{chapter*.20}{Design}{}% 17
+\BOOKMARK [0][-]{chapter*.21}{Adobe Premiere Pro}{}% 18
+\BOOKMARK [1][-]{section*.22}{Overview}{chapter*.21}% 19
+\BOOKMARK [1][-]{section*.23}{History}{chapter*.21}% 20
+\BOOKMARK [1][-]{section*.24}{Software Development Kit}{chapter*.21}% 21
+\BOOKMARK [2][-]{section*.25}{Importer}{section*.24}% 22
+\BOOKMARK [2][-]{section*.26}{Exporter}{section*.24}% 23
+\BOOKMARK [0][-]{chapter*.27}{Implementation}{}% 24
+\BOOKMARK [0][-]{chapter*.28}{Conclusion}{}% 25
+\BOOKMARK [0][-]{section*.30}{Bibliography}{}% 26
+\BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 27
+\BOOKMARK [0][-]{appendix.B}{Contents of enclosed CD}{}% 28

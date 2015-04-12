@@ -8,6 +8,11 @@
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\eprint}[2][]{\biburl{#2}}
 
+\bibitem{CC}
+CNET: Adobe kills Creative Suite, goes subscription-only. 2014, [Online;
+  accessed 30-March-2015].
+\urlprefix\biburl{http://www.cnet.com/news/adobe-kills-creative-suite-goes-subscription-only/}
+
 \bibitem{oauthdesc}
 Google: Using OAuth 2.0 for Installed Applications --- Google Accounts ----
   Google Developers. 2014, [Online; accessed 29-March-2015].
@@ -17,6 +22,11 @@ Google: Using OAuth 2.0 for Installed Applications --- Google Accounts ----
 Incorporated, A.~S.: Adobe Creative Suite 3 Production Premium Wins in
   Broadcasting. 2007, [Online; accessed 28-March-2015].
 \urlprefix\biburl{https://www.adobe.com/aboutadobe/pressroom/pressreleases/200704/041607BBC.html}
+
+\bibitem{ecma}
+International, E.: ECMAScript Language Specification. 2011, [Online; accessed
+  30-March-2015].
+\urlprefix\biburl{http://www.ecma-international.org/ecma-262/5.1/}
 
 \bibitem{cnn}
 mediasilo: Editing Wars: Adobe Premiere vs Final Cut vs Avid. 2013, [Online;
