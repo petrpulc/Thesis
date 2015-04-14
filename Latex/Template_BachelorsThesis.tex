@@ -193,21 +193,38 @@ SOAP is an XML language defining a message architecture and message formats, hen
 
 	\begin{description}
 		\item[Strength of SOAP] 
-In spite of their perceived complexity, the SOAP message format and the WSDL interface definition language have gained widespread adoption as the gateway technologies capable of delivering interoperability between heterogeneous middleware systems. One advantage is protocol transparency and independence.
+SOAP message format and the WSDL interface definition language have gained popularity as the technologies capable of delivering interoperability between systems. One advantage is protocol transparency and independence.
 
-Using SOAP, the same message in the same format can be transported across a variety of middleware systems, which may rely on HTTP, but also on many other transports. The transport protocol may change along the way. Being declared as SOAP headers, QoS aspects such as encryption and reliable transfer can be made independent from the transports used along the path ("end-to-end QoS"). 
+Using SOAP, the same message in the same format can be transported across a variety of  systems, which may rely on HTTP, but also on many other transports. The transport protocol may change along the way.
 
 Using WSDL to describe a service interface helps to abstract from the underlying communication protocol and serialization details as well as from the service implementation platform (operating system and programming language). WSDL contracts provide a machine-processable description of the syntax and structure of the corresponding request and response messages and define a flexible evolution path for the service. 
 
-As business and technology requirements change, the same abstract service interface can be bound to different transport protocols and messaging endpoints. In particular, WSDL can model service interfaces for systems based on synchronous and asynchronous interaction patterns. This kind of flexibility becomes fundamental when building gateways for preexisting legacy systems, which may not always use Web-friendly protocols.
+As business and technology requirements change, the same abstract service interface can be bound to different transport protocols and messaging endpoints. In particular, WSDL can model service interfaces for systems based on synchronous and asynchronous interaction patterns.\cite{soaprest}
 		\item[Weaknesses of SOAP] 
-Paradoxically, the power of SOAP can also be misused. Thus, it is important to avoid leakage across abstraction levels. Interoperability problems can occur when, for instance, native data types and language constructs of the service implementation are present in its interface. This weakness can be mitigated by stating and enforcing certain design and coding guidelines.
+Paradoxically, the power of SOAP can also be misused. Thus, it is important to avoid leakage across abstraction levels. Interoperability problems can occur when, for instance, native data types and language constructs of the service implementation are present in its interface.\cite{soaprest}
 
-The translation between the XML on the wire and the corresponding memory data structures has been problematic and is the main source of performance inefficiencies. Furthermore, XML Schema is a very rich language, making it difficult to identify the right construct to express a data model in a way that is fully supported by all SOAP/WSDL implementations. This problem can be avoided with profiling, identifying a subset of XML Schema types such as sequences which is “good enough” for most integration scenarios and known to be interoperable.\cite{soaprest}
+The translation between the XML and the corresponding memory data structures has been problematic and is the main source of performance inefficiencies. Furthermore, XML Schema is a very rich language, making it difficult to identify the right construct to express a data model in a way that is fully supported by all SOAP/WSDL implementations.\cite{soaprest}
 	\end{description}
 \subsection{REST}
+REpresentational State Transfer (REST) was originally introduced as an architectural style for building large-scale distributed hypermedia systems.
 
+The REST architectural style is based on four principles:
+	\begin{description}
+		\item[Resource identification through URI.] A RESTful Web service exposes a set of resources which identify the targets of the interaction with its clients. Resources are identified by URIs, which provide a global addressing space for resource and service discovery. 			\item[Uniform interface.] Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE. PUT creates a new resource, which can be then deleted using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource.\cite{soaprest}
+		\item[Self-descriptive messages.] Resources are decoupled from their representation so that their content can be accessed in a variety of formats (e.g., HTML, XML, plain text, PDF, JPEG, etc.). Metadata about the resource is available and used, for example, to control caching, detect transmission errors, negotiate the appropriate representation format, and perform authentication or access control. 
+		\item[Stateful interactions through hyperlinks.] Every interaction with a resource is stateless, i.e., request messages are self-contained. Stateful interactions are based on the concept of explicit state transfer. Several techniques exist to exchange state, e.g., URI rewriting, cookies, and hidden form fields. State can be embedded in response messages to point to valid future states of the interaction.\cite{soaprest}
+	\end{description}
+Now I want to describe strengths and weaknesses of REST:
+	\begin{description}
+		\item[Strength of REST] 
+RESTful Web services are designed to be simple. HTTP clients and servers are available for all major programming languages and operating system/hardware platforms, and the default HTTP port 80 is commonly left open by default in most firewall configurations. Such lightweight infrastructure, is inexpensive to acquire and thus has a very low barrier for adoption.
 
+The effort required to build a client to a RESTful service is very small as developers can begin testing such services from an ordinary Web browser, without having to develop custom client-side software.\cite{soaprest} 
+
+Deploying a RESTful Web service is very similar to building a dynamic Web site. Furthermore, thanks to URIs and hyperlinks, REST has shown that it is possible to discover Web resources without an approach based on compulsory registration to a (centralized) repository. On the operational side, it is known how to scale a stateless RESTful Web service to serve a very large number of clients, thanks to the support for caching, clustering and load balancing built into REST. Due to the possibility of choosing lightweight message formats, e.g., the JavaScript Object Notation (JSON) or, even plain text for very simple data types, REST also gives more possibilities to optimize the performance of a Web service.
+		\item[Weaknesses of REST] 
+
+	\end{description}
 \chapter{Design}
 \chapter{Adobe Premiere Pro}
 \section{Overview}
