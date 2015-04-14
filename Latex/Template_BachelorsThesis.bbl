@@ -33,6 +33,14 @@ mediasilo: Editing Wars: Adobe Premiere vs Final Cut vs Avid. 2013, [Online;
   accessed 28-March-2015].
 \urlprefix\biburl{http://blog.mediasilo.com/editing-wars}
 
+\bibitem{soaprest}
+Pautasso, C.; Zimmermann, O.; Leymann, F.: Restful Web Services vs. "Big"' Web
+  Services: Making the Right Architectural Decision. In \emph{Proceedings of
+  the 17th International Conference on World Wide Web}, WWW '08, New York, NY,
+  USA: ACM, 2008, ISBN 978-1-60558-085-2, pp. 805--814,
+  \doi{10.1145/1367497.1367606}.
+\urlprefix\biburl{http://doi.acm.org/10.1145/1367497.1367606}
+
 \bibitem{adobe}
 Wikipedia: Adobe Premiere Pro --- Wikipedia{,} The Free Encyclopedia. 2015,
   [Online; accessed 26-March-2015].

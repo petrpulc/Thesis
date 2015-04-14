@@ -12,17 +12,18 @@
 \BOOKMARK [2][-]{section*.15}{Adobe Premiere Pro CC}{section*.14}% 12
 \BOOKMARK [1][-]{section*.16}{ExtendScript}{chapter*.6}% 13
 \BOOKMARK [2][-]{section*.17}{ECMAScript}{section*.16}% 14
-\BOOKMARK [1][-]{section*.18}{NARRA}{chapter*.6}% 15
-\BOOKMARK [2][-]{section*.19}{NARRA API}{section*.18}% 16
-\BOOKMARK [0][-]{chapter*.20}{Design}{}% 17
-\BOOKMARK [0][-]{chapter*.21}{Adobe Premiere Pro}{}% 18
-\BOOKMARK [1][-]{section*.22}{Overview}{chapter*.21}% 19
-\BOOKMARK [1][-]{section*.23}{History}{chapter*.21}% 20
-\BOOKMARK [1][-]{section*.24}{Software Development Kit}{chapter*.21}% 21
-\BOOKMARK [2][-]{section*.25}{Importer}{section*.24}% 22
-\BOOKMARK [2][-]{section*.26}{Exporter}{section*.24}% 23
-\BOOKMARK [0][-]{chapter*.27}{Implementation}{}% 24
-\BOOKMARK [0][-]{chapter*.28}{Conclusion}{}% 25
-\BOOKMARK [0][-]{section*.30}{Bibliography}{}% 26
-\BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 27
-\BOOKMARK [0][-]{appendix.B}{Contents of enclosed CD}{}% 28
+\BOOKMARK [1][-]{section*.18}{NARRA API}{chapter*.6}% 15
+\BOOKMARK [2][-]{section*.19}{SOAP}{section*.18}% 16
+\BOOKMARK [2][-]{section*.20}{REST}{section*.18}% 17
+\BOOKMARK [0][-]{chapter*.21}{Design}{}% 18
+\BOOKMARK [0][-]{chapter*.22}{Adobe Premiere Pro}{}% 19
+\BOOKMARK [1][-]{section*.23}{Overview}{chapter*.22}% 20
+\BOOKMARK [1][-]{section*.24}{History}{chapter*.22}% 21
+\BOOKMARK [1][-]{section*.25}{Software Development Kit}{chapter*.22}% 22
+\BOOKMARK [2][-]{section*.26}{Importer}{section*.25}% 23
+\BOOKMARK [2][-]{section*.27}{Exporter}{section*.25}% 24
+\BOOKMARK [0][-]{chapter*.28}{Implementation}{}% 25
+\BOOKMARK [0][-]{chapter*.29}{Conclusion}{}% 26
+\BOOKMARK [0][-]{section*.31}{Bibliography}{}% 27
+\BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 28
+\BOOKMARK [0][-]{appendix.B}{Contents of enclosed CD}{}% 29
