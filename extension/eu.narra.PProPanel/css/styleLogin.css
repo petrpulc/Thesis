@@ -1,0 +1,85 @@
+/*p {
+font-family: "LucidaGrande", sans-serif;
+text-align: center;
+}
+
+button {
+font-family: "LucidaGrande", sans-serif;
+font-size: 12px;
+border: 1px solid;
+height: 20px;
+}
+
+input[type=text] {
+height: 12px;
+}
+
+#content {
+margin-right: auto;
+margin-left: auto;
+vertical-align: middle;
+width: 100%;
+}
+
+#content ul {
+padding: 0px;
+}
+
+#content ul li {
+margin: 3px 0px 3px 0px;
+}*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html{
+  	display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+	font-family: "LucidaGrande", sans-serif;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.reset {
+	display: block;
+	position: relative;
+}
+
+.row {
+	width: 100%;
+}
+
+.wrapper {
+	vertical-align: middle;
+}
+
+#login_logo {
+	text-align: center;
+}
+
+#login_logo img {
+	display: inline-block;
+	width: 60%;
+}
+
+#login_note {
+	margin: 20px 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#login_button {
+	text-align: center;
+}
+
+#login_button button {
+	display: inline-block;
+	width: 30%;
+	padding: 5px 0;
+}

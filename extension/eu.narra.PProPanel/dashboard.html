@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="./ext.js"></script>
+    <script src="./lib/CSInterface.js"></script>
+    <script src="./lib/jquery-1.9.1.js"></script>
+    <script src="./lib/jquery-ui.min.js"></script>
+    <script src="./apiCalls.js"></script>
+    <script src="./ui.js"></script>
+
+<link id="ppstyle" rel="stylesheet" type="text/css" href="css/styleDashboard.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+
+<title>PProPanel</title>
+    <script type="text/javascript">
+
+      $( document ).ready(function() {
+        loadProfile();
+        loadProjects();
+
+        $("#logout").on("click", function(e) {
+          logout();
+        });
+      });
+    </script>
+  </head>
+
+  <body onLoad="onLoaded()">
+    <div class="wrapper">
+      <div class="row" id="ui_user">
+        <span id="username" class="default"></span>
+        <span class="center">
+          <img src="payloads/narra.png" alt="narra logo">
+        </span>
+        <span class="right">
+          <button id="logout">Logout</button>
+        </span>
+      </div>
+      <hr>
+      <div class="row" id="ui_content">
+        <h1 class="default">Projects:</h1>
+        <ul id="ui_content_projects" onLoad="hideProgressBar()">
+        </ul>
+      </div>
+    </div>
+  </body>
+
+</html>

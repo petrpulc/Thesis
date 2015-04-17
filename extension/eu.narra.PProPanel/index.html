@@ -10,7 +10,7 @@
     <script src="./apiCalls.js"></script>
     <script src="./ui.js"></script>
 
-<link id="ppstyle" rel="stylesheet" type="text/css" href="css/style.css">
+<link id="ppstyle" rel="stylesheet" type="text/css" href="css/styleLogin.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 
@@ -30,8 +30,11 @@
         }*/
 
         //$('button').html('<i class="fa fa-spinner fa-pulse default"></i>');
-        initPlugin();
 
+        $("#login_button button").on("click", function(e) {
+          getToken();
+          window.location.href = "dashboard.html";
+        });
 
         /*$("#login_button button").on("click", function(e){
           e.preventDefault(); 
@@ -62,12 +65,14 @@
 
   <body onLoad="onLoaded()">
     <div class="wrapper">
-    </div>
-    <div id="progress">
-      <div>
-        <div id="bar"></div>
-        <span>Loading profile...</span>
+      <div id="login_logo" class="row">
+        <img src="payloads/narra.png" alt="narra logo">
       </div>
+      <div id="login_note" class="default row">Press Login button to log into Narra.</div>
+      <div id="login_button" class="row">
+        <button>Login</button>
+      </div>
+      <input id="token" type="text">
     </div>
   	<!--<p id="active_seq">[uninitialized]</p>-->
   	
