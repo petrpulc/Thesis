@@ -1,9 +1,10 @@
+var loginUrl = "http://api.narra.eu/auth/google";
 
 function onLoaded() {
     var csInterface = new CSInterface();
   
     var appName = csInterface.hostEnvironment.appName;
-    document.getElementById("dragthing").style.backgroundColor = "lightblue";
+    //document.getElementById("dragthing").style.backgroundColor = "lightblue";
     
     if(appName != "FLPR"){
       loadJSX();
@@ -11,14 +12,14 @@ function onLoaded() {
     
     var appNames = ["PPRO"];
 
-    for (var i = 0; i < appNames.length; i++) {
+    /*for (var i = 0; i < appNames.length; i++) {
         var name = appNames[i];
         if (appName.indexOf(name) >= 0) {
            var btn = document.getElementById("btn_" + name);
            if (btn)
                 btn.disabled = false;
         }
-    }
+    }*/
     
 
     updateThemeWithAppSkinInfo(csInterface.hostEnvironment.appSkinInfo);
@@ -30,7 +31,7 @@ function onLoaded() {
         alert(event.data);
     });
 
-    csInterface.evalScript('$._ext_PPRO.getActiveSequenceName()', myCallBackFunction);    
+    //csInterface.evalScript('$._ext_PPRO.getActiveSequenceName()', myCallBackFunction);    
 }
 
 function dragHandler(event){
