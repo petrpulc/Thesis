@@ -10,24 +10,21 @@
 \contentsline {subsection}{Non-Functional requirements}{4}{section*.9}
 \contentsline {section}{Use cases}{4}{section*.10}
 \contentsline {section}{Structure of application}{5}{section*.11}
-\contentsline {section}{Authorization}{5}{section*.12}
-\contentsline {subsection}{OAuth 2.0}{7}{section*.13}
+\contentsline {section}{Authorization}{7}{section*.12}
+\contentsline {subsection}{OAuth 2.0}{8}{section*.13}
 \contentsline {section}{Paradigm shift}{9}{section*.14}
 \contentsline {subsection}{Adobe Premiere Pro CC}{10}{section*.15}
-\contentsline {section}{ExtendScript}{10}{section*.16}
-\contentsline {subsection}{ECMAScript}{10}{section*.17}
+\contentsline {section}{ExtendScript}{11}{section*.16}
+\contentsline {subsection}{ECMAScript}{11}{section*.17}
 \contentsline {section}{NARRA API}{12}{section*.18}
-\contentsline {subsection}{SOAP}{12}{section*.19}
-\contentsline {subsection}{REST}{13}{section*.20}
-\contentsline {chapter}{Design}{15}{chapter*.21}
-\contentsline {chapter}{Adobe Premiere Pro}{17}{chapter*.22}
-\contentsline {section}{Overview}{17}{section*.23}
-\contentsline {section}{History}{18}{section*.24}
-\contentsline {section}{Software Development Kit}{18}{section*.25}
-\contentsline {subsection}{Importer}{18}{section*.26}
-\contentsline {subsection}{Exporter}{18}{section*.27}
-\contentsline {chapter}{Implementation}{19}{chapter*.28}
-\contentsline {chapter}{Conclusion}{21}{chapter*.29}
-\contentsline {chapter}{Bibliography}{23}{section*.31}
-\contentsline {appendix}{\chapternumberline {A}Acronyms}{25}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Contents of enclosed CD}{27}{appendix.B}
+\contentsline {subsection}{SOAP}{13}{section*.19}
+\contentsline {subsection}{REST}{14}{section*.20}
+\contentsline {chapter}{Design}{17}{chapter*.21}
+\contentsline {chapter}{Adobe Premiere Pro}{19}{chapter*.22}
+\contentsline {section}{Overview}{19}{section*.23}
+\contentsline {section}{History}{20}{section*.24}
+\contentsline {chapter}{Implementation}{21}{chapter*.25}
+\contentsline {chapter}{Conclusion}{23}{chapter*.26}
+\contentsline {chapter}{Bibliography}{25}{section*.28}
+\contentsline {appendix}{\chapternumberline {A}Acronyms}{27}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Contents of enclosed CD}{29}{appendix.B}

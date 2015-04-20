@@ -91,11 +91,26 @@ Plug-in should support synchronization of project metadata between NARRA and Ado
 In this section I will try to describe the basic use cases for this application. In order to communicate with NARRA, user has to complete authorization process, that's why almost every use case require user to be logged in. You can see use case diagram on figure \ref{fig:usecase}.
 	\begin{description}
 		\item[Authorization in NARRA] 
-User wants to authorize himself in order to use plug-in. Authorization process is carried out by Google.
+User wants to authorize himself in order to use plug-in. After plug-in launch, user has to choose an authorization method (choose entity provider). There is two possibilities:
+	\begin{itemize}
+		\item Authorization using Google account.
+		\item Authorization using Github account.
+	\end{itemize}
+After user clicks on one of these buttons, system default web browser will be launched and user will be redirected to a login page of chosen entity provider. On this page user enters his/her credentials and submits the form. After successful authorization, user's access token will be displayed. This token has to be copied by user to an input field in the plug-in and submitted. 
 		\item[Browsing project list] 
-User can see a list of his/her projects exported to NARRA. He/she is able to scroll the list, select a project. Requirements: User has to be logged in. 
-		\item[Import new project from NARRA]
-User wants to import a project from NARRA. Project is selected from a list, after double click on the project, importing process starts, user sees progress bar of the import. Requirements: User has to be logged in. 
+User can see a list of his/her projects in NARRA. Requirements: User has to be logged in. There are several way how to access project list:
+	\begin{itemize}
+		\item After successful authorization, list of projects that given user contributes to will be displayed. 
+		\item User can click "Projects" menu button to get to the list of projects from any part of the plug-in.
+	\end{itemize}
+		\item[Browsing library list] 
+User can see a list of his/her libraries in NARRA. Requirements: User has to be logged in. There are several way how to access library list:
+	\begin{itemize}
+		\item After successful authorization, list of projects that given user contributes to will be displayed, user clicks on the desired project to see which libraries this project contain. List of libraries appears. 
+		\item User can click "Libraries" menu button to get to the list of libraries from any part of the plug-in.
+	\end{itemize}
+		\item[Import new item from NARRA]
+User wants to import an item from NARRA. Requirements: User has to be logged in. User navigates to
 		\item[Export project to NARRA]
 User wants to export a project to NARRA. Current project in Adobe Premiere Pro will be pushed to NARRA after successful launch. User sees progress bar of export process with time estimation. Requirements: User has to be logged in.
 		\item[Editing of metadata]
@@ -121,14 +136,16 @@ The reason why I chose this structure is because it is more logical to have two 
 		\caption{Sketch of communication with NARRA}\label{fig:narrastruct}
 	\end{figure}
 \section{Authorization}
-To communicate with NARRA, user has to be authorized. NARRA uses google identities as a user objects, that is the reason why I have to somehow embed Google authorization service into this plug-in. I decided to do by using a web browser and login form provided by Google. Basic scenarion will be like this:
+To communicate with NARRA, user has to be authorized. NARRA uses Google and Github identities as a user objects, that is the reason why I have to somehow embed authorization service into this plug-in. I decided to do by using a web browser and login form provided by entity providers. Basic scenarion will be like this:
 	\begin{enumerate}
 		\item User launches plug-in.
-		\item Browser window opens up and request is sent to Google to start authorization process.
-		\item User sees Google login form.
+		\item User selects authorization method.
+		\item Browser window opens up and redirects to Google/Github (depends on the user's choice).
+		\item User sees login form.
 		\item User enters his/her username and password and allows plug-in to use profile data.
-		\item Plug-in receives token that will be used for communication with NARRA.
+		\item User copies token from browser window and copies it back to NARRA plug-in
 	\end{enumerate}
+I decided to make user copy token manually because of the built-in browser limitations, it is impossible to create another tab or make a popup, so I have to use default browser for user authorization. I didn't find any way how to pass token from one browser to another, so manual way is the only solution for now.   
 \subsection{OAuth 2.0}
 OAuth is an open standard for authorization. OAuth provides client applications a "secure delegated access" to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials. 
 
@@ -223,7 +240,10 @@ The effort required to build a client to a RESTful service is very small as deve
 
 Deploying a RESTful Web service is very similar to building a dynamic Web site. Furthermore, thanks to URIs and hyperlinks, REST has shown that it is possible to discover Web resources without an approach based on compulsory registration to a (centralized) repository. On the operational side, it is known how to scale a stateless RESTful Web service to serve a very large number of clients, thanks to the support for caching, clustering and load balancing built into REST. Due to the possibility of choosing lightweight message formats, e.g., the JavaScript Object Notation (JSON) or, even plain text for very simple data types, REST also gives more possibilities to optimize the performance of a Web service.
 		\item[Weaknesses of REST] 
+There is some confusion regarding the commonly accepted best practices for building RESTful Web services. Recommendations have been established informally. 
 
+Most of the REST services uses just GET and POST (first for idempotent requests, second for everything else) because some proxies and firewalls may not always allow connections that use other method.
+These restrictions have led to a series of workarounds, where the "real" verb is sent using either a special HTTP header (X-HTTP-Method-Override). As with most non-standard workarounds, these may not be understood by all Web servers, and require additional development and testing effort. Another limitation makes it impossible to strictly follow the GET vs. POST rule. For idempotent requests having large amounts of input data (more than 4 KB in most current implementations) it is not possible to encode such data in the resource URI, as the server will reject such URI or in the worst case it will crash, exposing the service to buffer overflow attacks. The size of the request notwithstanding, it may also be challenging to encode complex data structures into a URI as there is no commonly accepted marshalling mechanism. Inherently, the POST method does not suffer from such limitations.\cite{soaprest}
 	\end{description}
 \chapter{Design}
 \chapter{Adobe Premiere Pro}
@@ -242,12 +262,6 @@ Premiere Pro has been used to edit feature films, such as Gone Girl, Captain Abu
 \section{History}
 
 Premiere Pro is the redesigned successor to Adobe Premiere, and was launched in 2003. Premiere Pro refers to versions released in 2003 and later, whereas Premiere refers to the earlier releases. Premiere was one of the first computer-based NLEs (non-linear editing system), with its first release on Mac in 1991. Up until version Premiere Pro 2.0 (CS2), the software packaging featured a galloping horse, in a nod to Eadweard Muybridge's work, "Sallie Gardner at a Gallop".\cite{adobe}
-
-\section{Software Development Kit}
-The Adobe Premiere Pro plug-in and software development kits (SDK) allow us to build plug-ins to enhance and extend the capabilities of Premiere Pro. I will use it's functionality to implement sequence importer and exporter.
-\subsection{Importer}
-Importers provide video and/or audio from the media source. This source can be a single file, a set of files, a communication link between another application, etc.
-\subsection{Exporter}
 
 \chapter{Implementation}
 
