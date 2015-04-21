@@ -79,6 +79,8 @@ User should be able to export a new project from Adobe Premiere Pro to NARRA.
 User should be able to synchronize all changes made in project with NARRA.
 		\item [Synchronization of project metadata between NARRA and local machine]
 Plug-in should support synchronization of project metadata between NARRA and Adobe Premiere Pro project.
+		\item [Plug-in appearance should mimic design of Adobe Premiere Pro itself]
+Plug-in should change color scheme accordingly to color scheme of Adobe Premiere Pro.
 	\end{description}
 \subsection{Non-Functional requirements}
 	\begin{itemize}
@@ -110,13 +112,32 @@ User can see a list of his/her libraries in NARRA. Requirements: User has to be 
 		\item User can click "Libraries" menu button to get to the list of libraries from any part of the plug-in.
 	\end{itemize}
 		\item[Import new item from NARRA]
-User wants to import an item from NARRA. Requirements: User has to be logged in. User navigates to
+User wants to import an item from NARRA. Requirements: User has to be logged in. Basic scenario:
+	\begin{enumerate}
+		\item User clicks on the item in the list, menu appears.
+		\item User clicks on download option. Default browser launches and user sees all information about given item.
+		\item User clicks download button. Downloading of .zip archive starts.
+		\item User unzips archive and "drag and drops" contents of this archive into project bin inside Premiere Pro.
+	\end{enumerate}
 		\item[Export project to NARRA]
-User wants to export a project to NARRA. Current project in Adobe Premiere Pro will be pushed to NARRA after successful launch. User sees progress bar of export process with time estimation. Requirements: User has to be logged in.
+User wants to export a project to NARRA. Requirements: User has to be logged in. Basic scenario:
+	\begin{enumerate}
+		\item User selects desired items from a list by clicking on the checkboxes near items.
+		\item User clicks "sync" button. Plugin synchronizes checked items with NARRA.
+	\end{enumerate}
 		\item[Editing of metadata]
-User wants to edit project metadata and save changes back to NARRA. User can add metadata using Adobe Premiere Pro tools. Requirements: User has to be logged in.
+User wants to edit project metadata and save changes back to NARRA. User can add metadata using Adobe Premiere Pro tools. Requirements: User has to be logged in. Basic scenario:
+	\begin{enumerate}
+		\item User edits metadata of an item inside project bin using Adobe Premiere Pro tools.
+		\item User selects desired item from a list by clicking on the checkboxes near items.
+		\item User clicks "sync" button. Plugin synchronizes checked items with NARRA.
+	\end{enumerate}
 		\item[Searching for a project]
-User wants to find a project in his project list. Name of the project should be written in a search box. List of projects will be automatically refreshed after each letter typed in search box. Requirements: User has to be logged in.
+User wants to find a project in his project list. Requirements: User has to be logged in. Basic scenario: 
+	\begin{enumerate}
+		\item User enters the keyword in a search field.
+		\item User clicks search button or presses "Enter" key. List of items will be refreshed displaying search results.
+	\end{enumerate}
 	\end{description}
 	\begin{figure}
 		\centering

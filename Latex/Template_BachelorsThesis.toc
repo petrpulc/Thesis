@@ -9,16 +9,16 @@
 \contentsline {subsection}{Functional requirements}{3}{section*.8}
 \contentsline {subsection}{Non-Functional requirements}{4}{section*.9}
 \contentsline {section}{Use cases}{4}{section*.10}
-\contentsline {section}{Structure of application}{5}{section*.11}
-\contentsline {section}{Authorization}{7}{section*.12}
+\contentsline {section}{Structure of application}{6}{section*.11}
+\contentsline {section}{Authorization}{6}{section*.12}
 \contentsline {subsection}{OAuth 2.0}{8}{section*.13}
-\contentsline {section}{Paradigm shift}{9}{section*.14}
-\contentsline {subsection}{Adobe Premiere Pro CC}{10}{section*.15}
+\contentsline {section}{Paradigm shift}{10}{section*.14}
+\contentsline {subsection}{Adobe Premiere Pro CC}{11}{section*.15}
 \contentsline {section}{ExtendScript}{11}{section*.16}
 \contentsline {subsection}{ECMAScript}{11}{section*.17}
-\contentsline {section}{NARRA API}{12}{section*.18}
+\contentsline {section}{NARRA API}{13}{section*.18}
 \contentsline {subsection}{SOAP}{13}{section*.19}
-\contentsline {subsection}{REST}{14}{section*.20}
+\contentsline {subsection}{REST}{15}{section*.20}
 \contentsline {chapter}{Design}{17}{chapter*.21}
 \contentsline {chapter}{Adobe Premiere Pro}{19}{chapter*.22}
 \contentsline {section}{Overview}{19}{section*.23}
