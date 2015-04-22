@@ -18,8 +18,10 @@
     <script type="text/javascript">
 
       $( document ).ready(function() {
+        var url = window.location.href;
+        var name = getURLParameter(url, 'name');;    
         loadProfile();
-        loadProjects();
+        loadProjectLibraries(name);
 
         $("#logout").on("click", function(e) {
           logout();
@@ -46,12 +48,12 @@
       </ul>
       <hr>
       <div class="row" id="ui_content">
-        <h1 class="default">Projects:</h1>
+        <h1 class="default">Libraries:</h1>
         <ul id="ui_content_projects">
         </ul>
       </div>
       <div class="row default" id="footer">
-        <span>0</span>elements selected.
+        <span id="elemnum">0</span>elements selected.
         <span><i class="fa fa-refresh fa-spin"></i>Sync</span>
       </div>
     </div>

@@ -1,5 +1,3 @@
-var loginUrl = "http://api.narra.eu/auth/google";
-
 function onLoaded() {
     var csInterface = new CSInterface();
   

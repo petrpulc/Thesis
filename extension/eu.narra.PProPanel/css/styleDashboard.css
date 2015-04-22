@@ -102,6 +102,7 @@ hr {
 
 #ui_content_projects {
 	width: 100%;
+	margin-bottom: 2em;
 }
 
 .project {
@@ -118,10 +119,7 @@ hr {
 
 .project:hover {
 	border: 1px solid #31b4e0;
-}
-
-.project div img {
-	max-width: 20%;
+	cursor: pointer;
 }
 
 .project div {
@@ -138,6 +136,48 @@ hr {
 	text-align: center;
 }
 
+.project input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform: scale(2);
+	padding: 10px;
+}
+
 .thumbnails {
 	width: 100%;
+}
+
+.thumbnails li {
+	background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20%;
+    height: 5em;
+}
+
+#menu {
+	display: table;
+}
+
+#menu li {
+	display: table-cell;
+	text-align: center;
+	width: 50%;
+}
+
+#footer {
+	box-sizing: border-box;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	height: 2em;
+	line-height: 2em;
+	text-align: right;
+	border-top: 2px solid black;
+}
+
+#footer span {
+	margin: 0 7px;
 }

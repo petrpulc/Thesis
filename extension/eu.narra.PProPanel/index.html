@@ -6,59 +6,39 @@
     <script src="./ext.js"></script>
     <script src="./lib/CSInterface.js"></script>
     <script src="./lib/jquery-1.9.1.js"></script>
-    <script src="./lib/jquery-ui.min.js"></script>
     <script src="./apiCalls.js"></script>
     <script src="./ui.js"></script>
 
 <link id="ppstyle" rel="stylesheet" type="text/css" href="css/styleLogin.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 
 <title>PProPanel</title>
 
     <script type="text/javascript">
 
       $( document ).ready(function() {
-        /*$("#getseqname").on("click", function(e){
-           	e.preventDefault(); 
-           	var csInterface = new CSInterface();
-           	csInterface.evalScript('$._ext_PPRO.getActiveSequenceName()', myCallBackFunction);  
-        });*/
+        if (localStorage.getItem("token"))
+          window.location.href = "dashboard.html";
+        
+        $("#login_button_google").on("click", function(e) {
+          e.preventDefault(); 
+          csInterface = new CSInterface();
+          csInterface.openURLInDefaultBrowser(url + "auth/google");
+        });
 
-        /*loadMenu = function() {
-          $("#ui_content").append('<div class="ui_menu_item menu_left"><i class="fa fa-cloud-download fa-3x default"></i><span class="default">Import</span></div><div class="ui_menu_item"><i class="fa fa-cloud-upload fa-3x default"></i><span class="default">Export</span></div>');
-        }*/
+        $("#login_button_github").on("click", function(e){
+            e.preventDefault(); 
+            var csInterface = new CSInterface();
+            csInterface.openURLInDefaultBrowser(url + "auth/github");
+        });
 
-        //$('button').html('<i class="fa fa-spinner fa-pulse default"></i>');
-
-        $("#login_button button").on("click", function(e) {
+        $("#token button").on("click", function() {
           getToken();
           window.location.href = "dashboard.html";
         });
-
-        /*$("#login_button button").on("click", function(e){
-          e.preventDefault(); 
-          initUI();
-          var csInterface = new CSInterface();
-          csInterface.openURLInDefaultBrowser(loginUrl);*/
-
-          /*$.ajax({
-            method: "GET",
-            url: loginUrl,
-            dataType: "json",
-            beforeSend: function() {
-              $('#login_button').html('<i class="fa fa-spinner fa-pulse default"></i>');
-            },
-
-            success: function(msg) {
-              alert( "Data Saved: " + msg );
-            },
-            error: function() {
-              initUI();
-            }
-          });*/
-        //});
       });
+
+
 
     </script>
   </head>
@@ -68,11 +48,16 @@
       <div id="login_logo" class="row">
         <img src="payloads/narra.png" alt="narra logo">
       </div>
-      <div id="login_note" class="default row">Press Login button to log into Narra.</div>
+      <div id="login_note" class="default row">Choose login method:</div>
       <div id="login_button" class="row">
+        <div id="login_button_google"><i class="fa fa-google fa-2x default"></i><span class="default">Login with Google</span></div>
+        <div id="login_button_github"><i class="fa fa-github fa-2x default"></i><span class="default">Login with Github</span></div>   
+      </div>
+      <div class="row" id="token">
+        <span class="default">Enter your token:</span>
+        <input type="text">
         <button>Login</button>
       </div>
-      <input id="token" type="text">
     </div>
   	<!--<p id="active_seq">[uninitialized]</p>-->
   	
