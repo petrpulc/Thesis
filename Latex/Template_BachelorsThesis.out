@@ -1,26 +1,28 @@
 \BOOKMARK [2][-]{section*.1}{Citation of this thesis}{}% 1
 \BOOKMARK [0][-]{chapter*.5}{Introduction}{}% 2
-\BOOKMARK [0][-]{chapter*.6}{Analysis}{}% 3
-\BOOKMARK [1][-]{section*.7}{Requirements specification}{chapter*.6}% 4
-\BOOKMARK [2][-]{section*.8}{Functional requirements}{section*.7}% 5
-\BOOKMARK [2][-]{section*.9}{Non-Functional requirements}{section*.7}% 6
-\BOOKMARK [1][-]{section*.10}{Use cases}{chapter*.6}% 7
-\BOOKMARK [1][-]{section*.11}{Structure of application}{chapter*.6}% 8
-\BOOKMARK [1][-]{section*.12}{Authorization}{chapter*.6}% 9
-\BOOKMARK [2][-]{section*.13}{OAuth 2.0}{section*.12}% 10
-\BOOKMARK [1][-]{section*.14}{Paradigm shift}{chapter*.6}% 11
-\BOOKMARK [2][-]{section*.15}{Adobe Premiere Pro CC}{section*.14}% 12
-\BOOKMARK [1][-]{section*.16}{ExtendScript}{chapter*.6}% 13
-\BOOKMARK [2][-]{section*.17}{ECMAScript}{section*.16}% 14
-\BOOKMARK [1][-]{section*.18}{NARRA API}{chapter*.6}% 15
-\BOOKMARK [2][-]{section*.19}{SOAP}{section*.18}% 16
-\BOOKMARK [2][-]{section*.20}{REST}{section*.18}% 17
-\BOOKMARK [0][-]{chapter*.21}{Design}{}% 18
-\BOOKMARK [0][-]{chapter*.22}{Adobe Premiere Pro}{}% 19
-\BOOKMARK [1][-]{section*.23}{Overview}{chapter*.22}% 20
-\BOOKMARK [1][-]{section*.24}{History}{chapter*.22}% 21
-\BOOKMARK [0][-]{chapter*.25}{Implementation}{}% 22
-\BOOKMARK [0][-]{chapter*.26}{Conclusion}{}% 23
-\BOOKMARK [0][-]{section*.28}{Bibliography}{}% 24
-\BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 25
-\BOOKMARK [0][-]{appendix.B}{Contents of enclosed CD}{}% 26
+\BOOKMARK [0][-]{chapter.1}{Analysis}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Requirements specification}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.1}{Functional requirements}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.2}{Non-Functional requirements}{section.1.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Use cases}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Structure of application}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{Authorization}{chapter.1}% 9
+\BOOKMARK [2][-]{subsection.1.4.1}{OAuth 2.0}{section.1.4}% 10
+\BOOKMARK [1][-]{section.1.5}{Paradigm shift}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.6}{Adobe Premiere Pro CC}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.6.1}{Overview}{section.1.6}% 13
+\BOOKMARK [2][-]{subsection.1.6.2}{History}{section.1.6}% 14
+\BOOKMARK [1][-]{section.1.7}{ExtendScript}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.7.1}{ECMAScript}{section.1.7}% 16
+\BOOKMARK [1][-]{section.1.8}{NARRA API}{chapter.1}% 17
+\BOOKMARK [2][-]{subsection.1.8.1}{SOAP}{section.1.8}% 18
+\BOOKMARK [2][-]{subsection.1.8.2}{REST}{section.1.8}% 19
+\BOOKMARK [0][-]{chapter.2}{Design}{}% 20
+\BOOKMARK [1][-]{section.2.1}{User interface}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.1.1}{Login page}{section.2.1}% 22
+\BOOKMARK [2][-]{subsection.2.1.2}{Project list}{section.2.1}% 23
+\BOOKMARK [0][-]{chapter.3}{Implementation}{}% 24
+\BOOKMARK [0][-]{chapter*.6}{Conclusion}{}% 25
+\BOOKMARK [0][-]{section*.8}{Bibliography}{}% 26
+\BOOKMARK [0][-]{appendix.A}{Acronyms}{}% 27
+\BOOKMARK [0][-]{appendix.B}{Contents of enclosed CD}{}% 28

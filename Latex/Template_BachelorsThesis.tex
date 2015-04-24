@@ -60,32 +60,34 @@ Video editors faced with hundreds of hours of material can annotate their media 
 The main purpose of this thesis is to create a tool to use all this functionality and communicate with NARRA directly from your computer. I chose to implement it as a plug-in for Adobe Premiere Pro video editing software application. This application is widely used by different broadcasters such as the BBC\cite{bbc} and CNN\cite{cnn}, also many people chose it as a part or their workflow. Using this plug-in user will be able to directly communicate with NARRA API, i.e., to import and export sequences of clips with all attached metadata. 
 
 To develop this tool I will use mainly Adobe Premiere Pro SDK and Third-party libraries for solving arising problems or for extending functionality provided by SDK.
+\setsecnumdepth{all}
 \chapter{Analysis}
 \section{Requirements specification}
 \subsection{Functional requirements}
 Final product have to fulfill basic requirements:
 	\begin{description}
 		\item [Authorization in NARRA] 
-User should be able to authorize in NARRA, get a token that will be used for all transactions between plug-in and NARRA API. Since Google identities are used inside NARRA, plug-in should communicate with Google authorization services.
-		\item [Displaying a list of uploaded projects]
-User should be able to browse a list of his projects that he exported to NARRA.
-		\item [Searching a project by name]
-Plug-in should provide convenient search input field for a user to search in a project list.
+User should be able to authorize in NARRA, get a token that will be used for all transactions between plug-in and NARRA API. Since Google and Github identities are used inside NARRA, plug-in should communicate with those authorization services.
+		\item [Displaying a list of projects]
+User should be able to browse a list of his projects inside NARRA.
+		\item [Displaying a list of libraries]
+User should be able to browse a list of his libraries inside NARRA.
+		\item [Displaying a list of items]
+User should be able to browse a list of his items inside NARRA.
+		\item [Searching an element]
+Plug-in should provide convenient search input field for a user to search particular element in a list.
 		\item [Importing a project from NARRA to Adobe Premiere Pro]
 User should be able to choose a project from his project list and import it in the Adobe Premiere Pro.
-		\item [Exporting a new project from Adobe Premiere Pro to NARRA]
-User should be able to export a new project from Adobe Premiere Pro to NARRA.
 		\item [Pushing changes of a project to NARRA]
 User should be able to synchronize all changes made in project with NARRA.
 		\item [Synchronization of project metadata between NARRA and local machine]
 Plug-in should support synchronization of project metadata between NARRA and Adobe Premiere Pro project.
 		\item [Plug-in appearance should mimic design of Adobe Premiere Pro itself]
-Plug-in should change color scheme accordingly to color scheme of Adobe Premiere Pro.
+Plug-in's appearence should look like it is a part of user interface and it should change color scheme accordingly to color scheme of Adobe Premiere Pro.
 	\end{description}
 \subsection{Non-Functional requirements}
 	\begin{itemize}
 		\item User interface should be clear and understandable for a user.
-		\item Plug-in should estimate the length operations and provide a visual representation (progress bars)
 		\item Plug-in should work in Adobe Premiere Pro CS5.5 and newer versions.
 		\item Internet connection is required to use all functionality.
 	\end{itemize}
@@ -119,12 +121,6 @@ User wants to import an item from NARRA. Requirements: User has to be logged in.
 		\item User clicks download button. Downloading of .zip archive starts.
 		\item User unzips archive and "drag and drops" contents of this archive into project bin inside Premiere Pro.
 	\end{enumerate}
-		\item[Export project to NARRA]
-User wants to export a project to NARRA. Requirements: User has to be logged in. Basic scenario:
-	\begin{enumerate}
-		\item User selects desired items from a list by clicking on the checkboxes near items.
-		\item User clicks "sync" button. Plugin synchronizes checked items with NARRA.
-	\end{enumerate}
 		\item[Editing of metadata]
 User wants to edit project metadata and save changes back to NARRA. User can add metadata using Adobe Premiere Pro tools. Requirements: User has to be logged in. Basic scenario:
 	\begin{enumerate}
@@ -138,6 +134,16 @@ User wants to find a project in his project list. Requirements: User has to be l
 		\item User enters the keyword in a search field.
 		\item User clicks search button or presses "Enter" key. List of items will be refreshed displaying search results.
 	\end{enumerate}
+		\item [Changing colorscheme]
+User wants to change color scheme of Adobe Premiere Pro interface. User does that via settings dialog provided by Premiere Pro. Plug-in changes it's color scheme accordingly.
+		\item [User logout]
+User wants to work from another account. Basic scenario:
+	\begin{enumerate}
+		\item User clicks on "Logout" button. User gets redirected to login screen, information about his token removed from plug-in.
+		\item User chooses the method of authorization by clicking on a button. Default browser opens up and displays authorization from provided by chosen service.
+		\item User provides his/her credentials and submits the form. Authorization token is displayed.
+		\item User copies token to input field on plug-in login page and clicks "Login". Token is saved inside plug-in and user is redirected to project list. 
+	\end{enumerate}
 	\end{description}
 	\begin{figure}
 		\centering
@@ -150,7 +156,7 @@ I decided to split this application into two plug-ins:
 		\item Import plug-in (Importer).
 		\item Export plug-in (Exporter).
 	\end{itemize}
-The reason why I chose this structure is because it is more logical to have two lightweight plug-ins that solve it's own task. If user wants to import a project into Adobe Premiere Pro, he/she can launch Importer, to export a project Exporter can be used. On figure \ref{fig:narrastruct} you can see a sketch of communication between application and NARRA, you can see that plug-in directly uses Adobe Premiere Pro SDK and communicates with NARRA using http requests. All video files are stored in a cloud storage.
+The reason why I chose this structure is because it is more logical to have two lightweight plug-ins that solve it's own task. If user wants to import a project into Adobe Premiere Pro, he/she can launch Importer, to export a project Exporter can be used. On figure \ref{fig:narrastruct} you can see a sketch of communication between application and NARRA, you can see that plug-in directly uses Adobe Premiere Pro SDK and communicates with NARRA using http protocol. All video files are stored in a cloud storage.
 	\begin{figure}
 		\centering
 		\includegraphics[width=1\textwidth]{StructureofNARRA.png}
@@ -196,11 +202,31 @@ Identifies the client that is making the request. The value passed in this param
 	\end{figure}
 \section{Paradigm shift}
 At first glance we thought that Creative Suite version of Adobe Premiere Pro with provided SDK will be enough to implement desired functionality of the plug-in, but we encountered a problem with operating multiple files in project bin. There is no possibility to realize correct importing of project files into Adobe Premiere Pro CS5.5, so we decided to completely shift our paradigm and choose different approach to problem solving. We understand that we lose the flexibility of C language and possibility of usage many different frameworks and libraries, but in order to realize our needs it is necessary.
-\subsection{Adobe Premiere Pro CC}
+
+From this point we are switching from Adobe Premiere Pro CS5.5 version to CC 2014 version, that means:
+	\begin{itemize}
+		\item Adobe Premiere Pro SDK no longer needed, Panel SDK will be used.
+		\item We are switching from development in C to development in JavaScript and ExtendScript, because CC 2014 version of Adobe Premiere Pro uses Chromium web browser for execution of plug-ins.
+		\item All communication with Adobe Premiere Pro will be carried by ExtendScript functions.
+		\item We no longer need to make two separate plug-ins for importing and exporting libraries and items from NARRA. We are going to make it as a single plug-in that will be synchronizing elements on local machine with elements in NARRA storage. 
+	\end{itemize}
+\section{Adobe Premiere Pro CC}
 Creative Cloud (CC) version of Adobe products is the successor to Creative Suite that we chose as our working environment before encountering a problem. Adobe Premiere Pro CC allows us to use Panel SDK that provides much more functionality in comparison with SDK for Creative Suite version of video editing tool. 
 
 Adobe announced that it will no longer release any products of CS version\cite{CC}, so choosing CC we also looking to the future. 
 
+\subsection{Overview}
+Adobe Premiere Pro is a timeline-based video editing software application. It is part of the Adobe Creative Cloud, which includes video editing, graphic design, and web development programs.
+
+Premiere Pro has been used to edit feature films, such as Gone Girl, Captain Abu Raed, and Monsters, and other venues such as Madonna's Confessions Tour.\cite{adobe}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.1\textwidth]{PremiereMain.png}
+		\caption{Adobe Premiere Pro CS5.5 window}\label{fig:APPWindow}
+	\end{figure}
+\subsection{History}
+Premiere Pro is the redesigned successor to Adobe Premiere, and was launched in 2003. Premiere Pro refers to versions released in 2003 and later, whereas Premiere refers to the earlier releases. Premiere was one of the first computer-based NLEs (non-linear editing system), with its first release on Mac in 1991. Up until version Premiere Pro 2.0 (CS2), the software packaging featured a galloping horse, in a nod to Eadweard Muybridge's work, "Sallie Gardner at a Gallop".\cite{adobe}
+	
 Adobe Premiere Pro CC 2014 uses built-in web browser for executing plug-ins, so that means that we can use standard tools for web development to implement our plug-in.
 
 \section{ExtendScript}
@@ -267,22 +293,27 @@ Most of the REST services uses just GET and POST (first for idempotent requests,
 These restrictions have led to a series of workarounds, where the "real" verb is sent using either a special HTTP header (X-HTTP-Method-Override). As with most non-standard workarounds, these may not be understood by all Web servers, and require additional development and testing effort. Another limitation makes it impossible to strictly follow the GET vs. POST rule. For idempotent requests having large amounts of input data (more than 4 KB in most current implementations) it is not possible to encode such data in the resource URI, as the server will reject such URI or in the worst case it will crash, exposing the service to buffer overflow attacks. The size of the request notwithstanding, it may also be challenging to encode complex data structures into a URI as there is no commonly accepted marshalling mechanism. Inherently, the POST method does not suffer from such limitations.\cite{soaprest}
 	\end{description}
 \chapter{Design}
-\chapter{Adobe Premiere Pro}
-\section{Overview}
+In this chapter I would like to describe process of designing user interface and structure of my application.
+\section{User interface}
+\subsection{Login page}
+The main challenge for me while designing login page was how to place interactive elements more effectively, so that interface will have a good usability.
 
-Adobe Premiere Pro is a timeline-based video editing software application. It is part of the Adobe Creative Cloud, which includes video editing, graphic design, and web development programs.
+As I described earlier, user has two ways of authorization: 
+	\begin{itemize}
+		\item Using Google account
+		\item Using Github account
+	\end{itemize}
+So I decided to make two buttons with icons of Google and Github respectively and provide a name of the service under it for those, who is unfamiliar with these icons.
 
-Premiere Pro has been used to edit feature films, such as Gone Girl, Captain Abu Raed, and Monsters, and other venues such as Madonna's Confessions Tour.\cite{adobe}
+Next element is the input field for a token, that user will copy from browser window. I placed it on a next row right after buttons, wanting to show that it is the next step in the login process. After all of it, there is a login button.
 
+Overall look of the login page is shown on the figure \ref{fig:login}.
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.8\textwidth]{PremiereMain.png}
-		\caption{Adobe Premiere Pro CS5.5 window}\label{fig:APPWindow}
+		\includegraphics[width=0.9\textwidth]{LoginPage.png}
+		\caption{Login screen of the plug-in}\label{fig:login}
 	\end{figure}
-
-\section{History}
-
-Premiere Pro is the redesigned successor to Adobe Premiere, and was launched in 2003. Premiere Pro refers to versions released in 2003 and later, whereas Premiere refers to the earlier releases. Premiere was one of the first computer-based NLEs (non-linear editing system), with its first release on Mac in 1991. Up until version Premiere Pro 2.0 (CS2), the software packaging featured a galloping horse, in a nod to Eadweard Muybridge's work, "Sallie Gardner at a Gallop".\cite{adobe}
+\subsection{Project list}
 
 \chapter{Implementation}
 
