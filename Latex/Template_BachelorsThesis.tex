@@ -17,6 +17,7 @@
 % \usepackage{amssymb} %additional math symbols
 
 \usepackage{dirtree} %directory tree visualisation
+\usepackage{listings}
 
 % % list of acronyms
 % \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
@@ -245,7 +246,7 @@ A \textbf{scripting language} is a programming language that is used to manipula
 \item ECMAScript syntax intentionally resembles Java syntax. ECMAScript syntax is relaxed to enable it to serve as an easy-to-use scripting language. For example, a variable is not required to have its type declared nor are types associated with properties, and defined functions are not required to have their declarations appear textually before calls to them.\cite{ecma}
 	\end{itemize}
 
-\section{NARRA API}
+\section{Web API}
 I this section I would like to describe a layer between our plug-in and NARRA. At first I will analyze different methods of building web API, compare them and then I will write about particular implementation of NARRA API.
 
 \textbf{Application programming interface} (API) is a set of routines, protocols, and tools for building software applications. An API expresses a software component in terms of its operations, inputs, outputs, and underlying types. An API defines functionalities that are independent of their respective implementations, which allows definitions and implementations to vary without compromising each other.
@@ -274,7 +275,8 @@ REpresentational State Transfer (REST) was originally introduced as an architect
 
 The REST architectural style is based on four principles:
 	\begin{description}
-		\item[Resource identification through URI.] A RESTful Web service exposes a set of resources which identify the targets of the interaction with its clients. Resources are identified by URIs, which provide a global addressing space for resource and service discovery. 			\item[Uniform interface.] Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE. PUT creates a new resource, which can be then deleted using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource.\cite{soaprest}
+		\item[Resource identification through URI.] A RESTful Web service exposes a set of resources which identify the targets of the interaction with its clients. Resources are identified by URIs, which provide a global addressing space for resource and service discovery. 			
+		\item[Uniform interface.] Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE. PUT creates a new resource, which can be then deleted using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource.\cite{soaprest}
 		\item[Self-descriptive messages.] Resources are decoupled from their representation so that their content can be accessed in a variety of formats (e.g., HTML, XML, plain text, PDF, JPEG, etc.). Metadata about the resource is available and used, for example, to control caching, detect transmission errors, negotiate the appropriate representation format, and perform authentication or access control. 
 		\item[Stateful interactions through hyperlinks.] Every interaction with a resource is stateless, i.e., request messages are self-contained. Stateful interactions are based on the concept of explicit state transfer. Several techniques exist to exchange state, e.g., URI rewriting, cookies, and hidden form fields. State can be embedded in response messages to point to valid future states of the interaction.\cite{soaprest}
 	\end{description}
@@ -292,6 +294,9 @@ There is some confusion regarding the commonly accepted best practices for build
 Most of the REST services uses just GET and POST (first for idempotent requests, second for everything else) because some proxies and firewalls may not always allow connections that use other method.
 These restrictions have led to a series of workarounds, where the "real" verb is sent using either a special HTTP header (X-HTTP-Method-Override). As with most non-standard workarounds, these may not be understood by all Web servers, and require additional development and testing effort. Another limitation makes it impossible to strictly follow the GET vs. POST rule. For idempotent requests having large amounts of input data (more than 4 KB in most current implementations) it is not possible to encode such data in the resource URI, as the server will reject such URI or in the worst case it will crash, exposing the service to buffer overflow attacks. The size of the request notwithstanding, it may also be challenging to encode complex data structures into a URI as there is no commonly accepted marshalling mechanism. Inherently, the POST method does not suffer from such limitations.\cite{soaprest}
 	\end{description}
+\subsection{NARRA API}
+NARRA API is designed following RESTful approach, HTTP protocol is used to communicate with it. I would like to describe basic requests and responses that will be useful for our plug-in:
+	
 \chapter{Design}
 In this chapter I would like to describe process of designing user interface and structure of my application.
 \section{User interface}
@@ -314,9 +319,27 @@ Overall look of the login page is shown on the figure \ref{fig:login}.
 		\caption{Login screen of the plug-in}\label{fig:login}
 	\end{figure}
 \subsection{Project list}
+For each project I decided to display it's name and thumbnails. At first, I wanted to display a grid, where each cell will represent a project, name will be inside a cell and background of a cell will be it's thumbnail. If you hover a cursor above the cell, it's background will change every second looping through thumbnail images.
 
+In the end I decided to display a project as a strip, where you can see all thumbnail at once with a name below it. I think it is more convenient for user and more efficient for a workflow, user doesn't need to wait images to change to get what this project is about, all of them will be visible immediately.
+
+On top of the screen you can see username of a logged in user, NARRA logo and a logout button. Below it there are buttons for navigating to project list and to list of libraries, also there is a search input form.
+
+Final design of a project list you can see on figure \ref{fig:projects}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{LoginPage.png}
+		\caption{Login screen of the plug-in}\label{fig:projects}
+	\end{figure}
+\subsection{List of items}
 \chapter{Implementation}
-
+\section{Application architecture}
+Architecture of this plug-in is not complicated, best practices for web development were used, basically we are dealing with front-end development workflow. I this case, I decided to split different views into different HTML files:
+	\begin{description}
+		\item [index.html] This is the markup of the login screen that user sees after launching plug-in.
+		\item [projects.html] File containing markup of project list.
+		\item [libraries.html] File containing markup of list of libraries.
+	\end{description}
 \setsecnumdepth{part}
 \chapter{Conclusion}
 
