@@ -44,6 +44,34 @@
 \declarationOfAuthenticityOption{1} %select as appropriate, according to the desired license
 
 \graphicspath{ {./IMAGES/} }
+\lstdefinelanguage{JavaScript}{
+  	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  	keywordstyle=\bfseries,
+ 	ndkeywords={class, export, boolean, throw, implements, import, this},
+ 	ndkeywordstyle=\bfseries,
+ 	sensitive=false,
+ 	comment=[l]{//},
+ 	morecomment=[s]{/*}{*/},
+ 	commentstyle=\ttfamily,
+  	stringstyle=\ttfamily,
+ 	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+   	language=JavaScript,
+   	extendedchars=true,
+   	basicstyle=\footnotesize\ttfamily,
+   	showstringspaces=false,
+   	showspaces=false,
+   	numbers=left,
+   	numberstyle=\footnotesize,
+  	numbersep=9pt,
+   	tabsize=2,
+   	breaklines=true,
+   	showtabs=false,
+   	captionpos=b
+}
 
 \begin{document}
 
@@ -247,7 +275,7 @@ A \textbf{scripting language} is a programming language that is used to manipula
 	\end{itemize}
 
 \section{Web API}
-I this section I would like to describe a layer between our plug-in and NARRA. At first I will analyze different methods of building web API, compare them and then I will write about particular implementation of NARRA API.
+I this section I would like to describe a layer between our plug-in and NARRA. At first I will analyze different methods of building web API like SOAP and REST, compare them and then I will write about particular implementation of NARRA API.
 
 \textbf{Application programming interface} (API) is a set of routines, protocols, and tools for building software applications. An API expresses a software component in terms of its operations, inputs, outputs, and underlying types. An API defines functionalities that are independent of their respective implementations, which allows definitions and implementations to vary without compromising each other.
 
@@ -300,6 +328,16 @@ NARRA API is designed following RESTful approach, HTTP protocol is used to commu
 \chapter{Design}
 In this chapter I would like to describe process of designing user interface and structure of my application.
 \section{User interface}
+User interface is a layer that will "connect" user and application logic together. That's why I think that good user interface is almost a half of success of any application. 
+
+While designing my user interface I was evaluating it by these criteria:
+	\begin{description}
+		\item [Clarity] Clarity is the most important element of user interface design. Indeed, the whole purpose of user interface design is to enable people to interact with your system by communicating meaning and function. If people can’t figure out how your application works or where to go they’ll get confused and frustrated. \cite{ui}
+		\item [Familiarity] Familiar is something which appears like something else you’ve encountered before. When you’re familiar with something, you know how it behaves - you know what to expect.
+		\item [Responsiveness] Responsive means a couple of things. First of all, responsive means fast. The interface, if not the software behind it, should work fast. Waiting for things to load and using laggy and slow interfaces is frustrating. Seeing things load quickly, or at the very least, an interface that loads quickly improves the user experience.
+
+Responsive also means the interface provides some form of feedback. The interface should talk back to the user to inform them about what’s happening. \cite{ui}
+	\end{description}
 \subsection{Login page}
 The main challenge for me while designing login page was how to place interactive elements more effectively, so that interface will have a good usability.
 
@@ -339,7 +377,59 @@ Architecture of this plug-in is not complicated, best practices for web developm
 		\item [index.html] This is the markup of the login screen that user sees after launching plug-in.
 		\item [projects.html] File containing markup of project list.
 		\item [libraries.html] File containing markup of list of libraries.
+		\item [items.html] File containing markup of list of items.
 	\end{description}
+Application logic I decided to split into several JavaScript files:
+	\begin{description}
+		\item [ApiCalls.js] There are definitions of a functions that execute AJAX requests to NARRA.
+		\item [Ui.js] File containing functions that manipulate with user interface, like content generation.
+		\item [Premiere.jsx] File containing functions that communicate directly with Adobe Premiere Pro.
+	\end{description}
+In the next section I would like to describe implementation of somel key functionalities that specified in requirements.
+\section{Realization of application logic}
+\subsection{Authorization}
+Lets describe the very first process that user will go through. On the figure \ref{fig:seq_auth} you can see a sequence diagram of a process where user goes through authorization and after it receives a token that will be used for communication with NARRA.
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\textwidth]{AuthSeqDiag.png}
+		\caption{Sequence diagram of authorization process}\label{fig:seq_auth}
+	\end{figure}
+
+Key function there is \texttt{openURLInDefaultBrowser(url)}. It is the method of \texttt{CSInterface} class, provided by Panel SDK. Execution of this method results in the opening of default browser and sending GET request to provided url.
+\subsection{Displaying project list}
+This process starts with a press of a button and resulting in displaying of the list of a projects inside our plug-in. You can see sequence diagram on the figure \ref{fig:seq_project}.
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\textwidth]{ProjectsSeqDiag.png}
+		\caption{Sequence diagram of getting projects list process}\label{fig:seq_project}
+	\end{figure}
+
+I decided to use \texttt{localStorage} as a storage for access token. LocalStorage is a new feature from HTML5 specification. It allows to store data (access token in my case) inside browser for later use.
+
+The key functions in this process are \texttt{loadProjects()} and \texttt{displayProjects(data)}. 
+
+Function \texttt{loadProjects()} is a "wrapper" around JQuery AJAX request, that is executed by \texttt{\$.ajax()} function. You can see implementation of it on listing \ref{lst:lst_loadProjects}.
+
+Function \texttt{loadProjects(data)} is a function that takes JSON object, parses it and generates HTML content that will be inserted into \texttt{<div></div>} block and displayed to a user.
+\begin{lstlisting}[caption=loadProjects() function, label=lst:lst_loadProjects]
+function loadProjects() {
+  $.ajax({
+    method: "GET",
+    url: url + "v1/projects?token=" + localStorage["token"],
+    dataType: "json",
+
+    success: function(msg) {
+      displayProjects(msg);
+    },
+    error: function() {
+      displayError("Cannot load projects.");
+    }
+  });
+}
+\end{lstlisting}
+
+\subsection{Communication with Adobe Premiere Pro}
+
 \setsecnumdepth{part}
 \chapter{Conclusion}
 
