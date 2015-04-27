@@ -11,6 +11,7 @@
     <script src="./ui.js"></script>
 
 <link id="ppstyle" rel="stylesheet" type="text/css" href="css/styleDashboard.css">
+<link id="ppstyle" rel="stylesheet" type="text/css" href="css/items.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 
@@ -21,16 +22,14 @@
         var url = window.location.href;
         var name = getURLParameter(url, 'name');;    
         loadProfile();
-        loadProjectLibraries(name);
+        loadLibraryItems(name);
 
         $("#logout").on("click", function(e) {
           logout();
         });
 
         $("#sync").on("click", function(e) {
-          var array = new Array();
-          $("#sync i").addClass("fa-spin");
-          array = evalScript('$._ext_PPRO.sync()', callbackFunction);
+          evalScript('$._ext_PPRO.sync()');
         });
       });
     </script>
@@ -55,7 +54,7 @@
       </ul>
       <hr>
       <div class="row" id="ui_content">
-        <h1 class="default">Libraries:</h1>
+        <h1 class="default">Items:</h1>
         <ul id="ui_content_projects">
         </ul>
       </div>

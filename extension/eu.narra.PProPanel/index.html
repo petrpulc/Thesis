@@ -18,8 +18,8 @@
 
       $( document ).ready(function() {
         if (localStorage.getItem("token"))
-          window.location.href = "dashboard.html";
-        
+          window.location.href = "projects.html";
+
         $("#login_button_google").on("click", function(e) {
           e.preventDefault(); 
           csInterface = new CSInterface();
@@ -34,7 +34,7 @@
 
         $("#token button").on("click", function() {
           getToken();
-          window.location.href = "dashboard.html";
+          window.location.href = "projects.html";
         });
       });
 

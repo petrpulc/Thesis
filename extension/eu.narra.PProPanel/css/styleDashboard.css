@@ -126,7 +126,7 @@ hr {
 	text-align: center;
 }
 
-#project_title {
+.project_title {
 	width: 100%;
 	background-color: rgba(0,0,0,0.6);
 }
@@ -163,7 +163,16 @@ hr {
 #menu li {
 	display: table-cell;
 	text-align: center;
-	width: 50%;
+	width: 32%;
+}
+
+#menu li i {
+	font-size: 1.2em;
+	margin-right: 7px;
+}
+
+#menu li i:hover {
+	cursor: pointer;
 }
 
 #footer {
@@ -180,4 +189,17 @@ hr {
 
 #footer span {
 	margin: 0 7px;
+}
+
+#sync {
+	display: inline-block;
+	padding: 0 7px;
+	background-color: #eb374b;
+	height: 2em;
+	border: 1px solid transparent;
+}
+
+#sync:hover {
+	cursor: pointer;
+	border: 1px solid #31b4e0;
 }

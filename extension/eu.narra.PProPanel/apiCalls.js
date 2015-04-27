@@ -67,6 +67,21 @@ function loadProjectLibraries(name) {
   }
 }
 
+function loadLibraryItems(name) {
+  $.ajax({
+      method: "GET",
+      url: url + "v1/libraries/" + name + "/items?token=" + localStorage["token"],
+      dataType: "json",
+
+      success: function(msg) {
+        displayLibraryItems(msg);
+      },
+      error: function() {
+        displayError("Cannot load libraries.");
+      }
+    });
+}
+
 function logout() {
   $.ajax({
     method: "GET",
@@ -81,4 +96,29 @@ function logout() {
       displayError("Cannot signout.");
     }
   });
+}
+
+function callbackFunction(data) {
+  var array = data.split(',');
+  var counter = 0;
+  for (var i = 0; i < array.length; i++) {
+    $.ajax({
+      method: "GET",
+      url: url + "v1/items/" + array[i].replace(/\.[^/.]+$/, "") + "?token=" + localStorage["token"],
+      dataType: "json",
+
+      success: function(msg) {
+        var param = '$._ext_PPRO.renameFootage("' + msg.item.id + '","' + msg.item.name + '")';
+        evalScript(param);
+        counter++;
+        if (counter == array.length)
+          $("#sync i").removeClass("fa-spin"); 
+      },
+      error: function() {
+        counter++;
+        if (counter == array.length)
+          $("#sync i").removeClass("fa-spin");
+      }
+    });
+  }
 }
