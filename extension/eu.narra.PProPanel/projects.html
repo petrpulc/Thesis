@@ -24,6 +24,12 @@
         $("#logout").on("click", function(e) {
           logout();
         });
+
+        $("#sync").on("click", function(e) {
+          var array = new Array();
+          $("#sync i").addClass("fa-spin");
+          array = evalScript('$._ext_PPRO.sync()', callbackFunction);
+        });
       });
     </script>
   </head>
@@ -51,10 +57,10 @@
         <ul id="ui_content_projects">
         </ul>
       </div>
-      <!--<div class="row default" id="footer">
-        <span id="elemnum">0</span>elements selected.
-        <span id="sync"><i class="fa fa-refresh fa-spin"></i>Sync</span>
-      </div>-->
+      <div class="row default" id="footer">
+        <span id="status"></span>
+        <span id="sync"><i class="fa fa-refresh"></i>Sync</span>
+      </div>
     </div>
   </body>
 

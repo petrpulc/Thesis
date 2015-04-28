@@ -21,7 +21,7 @@
         var url = window.location.href;
         var name = getURLParameter(url, 'name');;    
         loadProfile();
-        loadProjectLibraries(name);
+        loadLibraries(name);
 
         $("#logout").on("click", function(e) {
           logout();
@@ -60,7 +60,7 @@
         </ul>
       </div>
       <div class="row default" id="footer">
-        <span id="elemnum">0</span>elements selected.
+        <span id="status"></span>
         <span id="sync"><i class="fa fa-refresh"></i>Sync</span>
       </div>
     </div>

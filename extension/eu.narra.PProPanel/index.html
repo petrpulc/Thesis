@@ -23,13 +23,13 @@
         $("#login_button_google").on("click", function(e) {
           e.preventDefault(); 
           csInterface = new CSInterface();
-          csInterface.openURLInDefaultBrowser(url + "auth/google");
+          csInterface.openURLInDefaultBrowser(apiUrl + "auth/google");
         });
 
         $("#login_button_github").on("click", function(e){
             e.preventDefault(); 
             var csInterface = new CSInterface();
-            csInterface.openURLInDefaultBrowser(url + "auth/github");
+            csInterface.openURLInDefaultBrowser(apiUrl + "auth/github");
         });
 
         $("#token button").on("click", function() {

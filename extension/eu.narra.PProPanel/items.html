@@ -11,7 +11,7 @@
     <script src="./ui.js"></script>
 
 <link id="ppstyle" rel="stylesheet" type="text/css" href="css/styleDashboard.css">
-<link id="ppstyle" rel="stylesheet" type="text/css" href="css/items.css">
+<link id="ppstyle" rel="stylesheet" type="text/css" href="css/styleItems.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 
@@ -29,7 +29,9 @@
         });
 
         $("#sync").on("click", function(e) {
-          evalScript('$._ext_PPRO.sync()');
+          var array = new Array();
+          $("#sync i").addClass("fa-spin");
+          array = evalScript('$._ext_PPRO.sync()', callbackFunction);
         });
       });
     </script>
@@ -59,7 +61,7 @@
         </ul>
       </div>
       <div class="row default" id="footer">
-        <span id="elemnum">0</span>elements selected.
+        <span id="status"></span>
         <span id="sync"><i class="fa fa-refresh"></i>Sync</span>
       </div>
     </div>
