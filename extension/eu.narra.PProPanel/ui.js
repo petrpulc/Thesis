@@ -15,8 +15,15 @@ function displayProjects(projectsObject) {
 	var project = '';
 	for (var i = projectsObject.projects.length - 1; i >= 0; i--) {
 		project = project + '<li class="project" id="' + projectsObject.projects[i].name + '"><div><ul class="thumbnails">';
-		for (var j = projectsObject.projects[i].thumbnails.length - 1; j >= 0; j--) {
-			project = project + '<li style="background-image: url(\'' + projectsObject.projects[i].thumbnails[j] +'\');"></li>';
+		if (projectsObject.projects[i].thumbnails) {	
+			for (var j = projectsObject.projects[i].thumbnails.length - 1; j >= 0; j--) {
+				project = project + '<li style="background-image: url(\'' + projectsObject.projects[i].thumbnails[j] +'\');"></li>';
+			}
+		}
+		else {
+			for (var j = 4; j >= 0; j--) {
+				project = project + '<li></li>'
+			}
 		}
 		project = project + '</ul><div class="project_title"><span class="default">' + projectsObject.projects[i].title + '</span></div></div></li>';
 	}
@@ -41,6 +48,11 @@ function displayLibraries(librariesObject) {
 				libraries = libraries + '<li style="background-image: url(\'' + librariesObject.libraries[i].thumbnails[j] +'\');"></li>'
 			}
 		}
+		else {
+			for (var j = 4; j >= 0; j--) {
+				libraries = libraries + '<li></li>'
+			}
+		}
 		libraries = libraries + '</ul><div class="project_title"><span class="default">' + librariesObject.libraries[i].name + '</span></div></div></li>';
 	}
 	$("#ui_content_projects").append(libraries);
@@ -55,7 +67,12 @@ function displayLibraryItems(itemsObject) {
 	var items = '';
 	for (var i = itemsObject.items.length - 1; i >= 0; i--) {
 		items = items + '<li class="item" id="' + itemsObject.items[i].id + '"><div class="item_wrapper"><ul class="thumbnails">';
-		items = items + '<li style="background-image: url(\'' + itemsObject.items[i].thumbnails[0] +'\');"></li>'
+		if (itemsObject.items[i].thumbnails) {
+			items = items + '<li style="background-image: url(\'' + itemsObject.items[i].thumbnails[0] +'\');"></li>';
+		}
+		else {
+			items = items + '<li></li>'
+		}
 		items = items + '</ul><div class="item_title"><span class="default">' + itemsObject.items[i].name + '</span></div></div></li>';
 	}
 	$("#ui_content_projects").append(items);

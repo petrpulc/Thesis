@@ -28,6 +28,11 @@
 	height: 100% !important;
 }
 
+.thumbnails li {
+	width: 100% !important;
+	height: 100% !important;
+}
+
 .item:hover {
 	border: 1px solid #31b4e0;
 	cursor: pointer;
