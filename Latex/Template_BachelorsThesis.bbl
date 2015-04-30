@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\biburl}[1]{\textless\url{#1}\textgreater}
 \providecommand{\urlprefix}{Available at WWW: }
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -45,6 +45,12 @@ Pautasso, C.; Zimmermann, O.; Leymann, F.: Restful Web Services vs. "Big"' Web
   USA: ACM, 2008, ISBN 978-1-60558-085-2, pp. 805--814,
   \doi{10.1145/1367497.1367606}.
 \urlprefix\biburl{http://doi.acm.org/10.1145/1367497.1367606}
+
+\bibitem{api_auth}
+Pulc, P.; Mocňák, M.; Pešek, K.: \emph{NARRA}, chapter~1. pp. {6--7}.
+
+\bibitem{api_profile}
+Pulc, P.; Mocňák, M.; Pešek, K.: \emph{NARRA}, chapter~1. p.~8.
 
 \bibitem{adobe}
 Wikipedia: Adobe Premiere Pro --- Wikipedia{,} The Free Encyclopedia. 2015,

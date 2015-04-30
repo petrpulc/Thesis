@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.24)  26 APR 2015 20:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.3.24)  30 APR 2015 22:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,22 +586,22 @@ Package: listings 2014/09/06 1.5e (Carsten Heinz)
 (./Template_BachelorsThesis.aux)
 \openout1 = `Template_BachelorsThesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 76.
+Package hyperref Info: Link coloring OFF on input line 77.
 
 (c:/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -613,10 +613,10 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 76.
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \nameref on input line 77.
+LaTeX Info: Redefining \ref on input line 77.
+LaTeX Info: Redefining \pageref on input line 77.
+LaTeX Info: Redefining \nameref on input line 77.
 (./Template_BachelorsThesis.out) (./Template_BachelorsThesis.out)
 \@outlinefile=\write4
 \openout4 = `Template_BachelorsThesis.out'.
@@ -628,19 +628,19 @@ LaTeX Info: Redefining \nameref on input line 76.
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 76.
+(Font)              <12> on input line 77.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 76.
+(Font)              <8> on input line 77.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 76.
+(Font)              <6> on input line 77.
 
-<cvut-logo-bw.pdf, id=154, 91.34125pt x 69.25874pt>
+<cvut-logo-bw.pdf, id=174, 91.34125pt x 69.25874pt>
 File: cvut-logo-bw.pdf Graphic file (type pdf)
  <use cvut-logo-bw.pdf>
-Package pdftex.def Info: cvut-logo-bw.pdf used on input line 76.
+Package pdftex.def Info: cvut-logo-bw.pdf used on input line 77.
 (pdftex.def)             Requested size: 61.2814pt x 46.4665pt.
 
-Underfull \hbox (badness 10000) in alignment at lines 76--76
+Underfull \hbox (badness 10000) in alignment at lines 77--77
 [][] 
  []
 
@@ -648,35 +648,35 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.76 \begin{document}
+l.77 \begin{document}
                       [1 <./cvut-logo-bw.pdf>]pdfTeX warning (ext4): destinatio
 n with the same identifier (name{page.ii}) has been already used, duplicate ign
 ored
 <to be read again> 
                    \relax 
-l.76 \begin{document}
+l.77 \begin{document}
                       [2
 
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 76.
+(Font)              using `OT1/cmr/bx/n' instead on input line 77.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/sc' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 76.
+(Font)              using `OT1/cmss/bx/n' instead on input line 77.
 
 [5
 
 ] [6
 
 ] [7]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 76.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
  (c:/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
  [8
 
 ] [9
@@ -728,48 +728,58 @@ Missing character: There is no “ in font cmr12!
 [2
 
 ]
-Overfull \hbox (30.77164pt too wide) in paragraph at lines 109--110
+Overfull \hbox (9.39525pt too wide) in paragraph at lines 110--111
 []\OT1/cmr/m/n/12 User should
  []
 
 
-Overfull \hbox (57.7569pt too wide) in paragraph at lines 113--114
+Overfull \hbox (6.13672pt too wide) in paragraph at lines 112--113
+[]\OT1/cmr/m/n/12 User should be
+ []
+
+
+Overfull \hbox (42.118pt too wide) in paragraph at lines 114--115
 []
  []
 
 [3]
-Overfull \hbox (36.98192pt too wide) in paragraph at lines 115--116
+Overfull \hbox (36.98192pt too wide) in paragraph at lines 116--117
 []
  []
 
 [4]
-Overfull \hbox (9.10132pt too wide) in paragraph at lines 154--156
+Overfull \hbox (9.10132pt too wide) in paragraph at lines 155--157
 []\OT1/cmr/m/n/12 User wants to edit pro-ject metadata and save changes
  []
 
-[5] <./IMAGES/UseCases.png, id=301, 329.23pt x 603.25375pt>
-File: ./IMAGES/UseCases.png Graphic file (type png)
 
-<use ./IMAGES/UseCases.png>
-Package pdftex.def Info: ./IMAGES/UseCases.png used on input line 179.
-(pdftex.def)             Requested size: 268.09883pt x 491.25626pt.
+Overfull \hbox (13.06763pt too wide) in paragraph at lines 158--159
+[]\OT1/cmr/m/n/12 User clicks "sync" but-ton. Plu-gin syn-chron-izes items with
+ NARRA. 
+ []
 
-<./IMAGES/StructureofNARRA.png, id=303, 622.57594pt x 553.31718pt>
+[5] <./IMAGES/UseCases.pdf, id=327, 722.7pt x 542.025pt>
+File: ./IMAGES/UseCases.pdf Graphic file (type pdf)
+
+<use ./IMAGES/UseCases.pdf>
+Package pdftex.def Info: ./IMAGES/UseCases.pdf used on input line 179.
+(pdftex.def)             Requested size: 383.0pt x 287.24706pt.
+ [6 <./IMAGES/UseCases.pdf>]
+<./IMAGES/StructureofNARRA.png, id=408, 622.57594pt x 553.31718pt>
 File: ./IMAGES/StructureofNARRA.png Graphic file (type png)
 
 <use ./IMAGES/StructureofNARRA.png>
 Package pdftex.def Info: ./IMAGES/StructureofNARRA.png used on input line 191.
 (pdftex.def)             Requested size: 383.0pt x 340.39359pt.
- [6] [7 <./IMAGES/UseCases.png (PNG copy)>]
-[8 <./IMAGES/StructureofNARRA.png>] [9]
-<./IMAGES/oauthwebflow.png, id=340, 365.365pt x 378.41376pt>
+ [7 <./IMAGES/StructureofNARRA.png>]
+[8] [9] <./IMAGES/oauthwebflow.png, id=438, 365.365pt x 378.41376pt>
 File: ./IMAGES/oauthwebflow.png Graphic file (type png)
 
 <use ./IMAGES/oauthwebflow.png>
 Package pdftex.def Info: ./IMAGES/oauthwebflow.png used on input line 229.
 (pdftex.def)             Requested size: 268.09883pt x 277.68904pt.
- [10] [11 <./IMAGES/oauthwebflow.png>]
-<./IMAGES/PremiereMain.png, id=356, 1445.4pt x 782.925pt>
+ [10 <./IMAGES/oauthwebflow.png>]
+<./IMAGES/PremiereMain.png, id=447, 1445.4pt x 782.925pt>
 File: ./IMAGES/PremiereMain.png Graphic file (type png)
 
 <use ./IMAGES/PremiereMain.png>
@@ -780,11 +790,11 @@ Overfull \hbox (38.30234pt too wide) in paragraph at lines 253--254
  [][] 
  []
 
-[12 <./IMAGES/PremiereMain.png>]
+[11]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [13]
+ [12 <./IMAGES/PremiereMain.png>] [13]
 Overfull \hbox (4.38582pt too wide) in paragraph at lines 274--275
 []\OT1/cmr/m/n/12 ECMAScript syn-tax in-ten-tion-ally re-sembles Java syn-tax. 
 ECMAScript
@@ -795,7 +805,7 @@ Overfull \hbox (2.79706pt too wide) in paragraph at lines 306--307
 []\OT1/cmr/m/n/12 A REST-ful Web ser-vice ex-poses
  []
 
-[16]
+
 Overfull \hbox (1.0666pt too wide) in paragraph at lines 309--310
 []\OT1/cmr/m/n/12 Every in-ter-ac-tion with a re-
  []
@@ -805,78 +815,119 @@ Overfull \hbox (11.63824pt too wide) in paragraph at lines 314--315
 []\OT1/cmr/m/n/12 RESTful Web ser-vices are de-signed to be simple. HTTP
  []
 
-[17] [18]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
- [19
+[16] [17]
+Overfull \hbox (53.9249pt too wide) in paragraph at lines 353--353
+ []  \OT1/cmtt/m/n/12 "image":"https://lh3.googleusercontent.com/.../photo.jpg?
+sz=50",[] 
+ []
 
-] <./IMAGES/LoginPage.png, id=407, 426.84468pt x 272.51813pt>
+
+LaTeX Warning: Citation `api_items' on page 18 undefined on input line 359.
+
+[18] [19]
+Overfull \hbox (84.79991pt too wide) in paragraph at lines 415--415
+ []  \OT1/cmtt/m/n/12 "library":{"id":"552a328961633276b1000000","name":"Exampl
+e Library"},[] 
+ []
+
+
+Overfull \hbox (23.04988pt too wide) in paragraph at lines 449--449
+ []   \OT1/cmtt/m/n/12 "contributors":[{"username":"bob","name":"Bob Example"}]
+},[] 
+ []
+
+[20]
+Overfull \hbox (10.69987pt too wide) in paragraph at lines 487--487
+ []  \OT1/cmtt/m/n/12 "contributors":[{"username":"bob","name":"Bob Example"}],
+[] 
+ []
+
+[21] [22]
+Overfull \hbox (23.04988pt too wide) in paragraph at lines 579--579
+ []    \OT1/cmtt/m/n/12 "contributors":[{"username":"bob","name":"Bob Example"}
+]}[] 
+ []
+
+[23] [24]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+ [25
+
+] <./IMAGES/LoginPage.png, id=534, 426.84468pt x 272.51813pt>
 File: ./IMAGES/LoginPage.png Graphic file (type png)
 
 <use ./IMAGES/LoginPage.png>
-Package pdftex.def Info: ./IMAGES/LoginPage.png used on input line 356.
+Package pdftex.def Info: ./IMAGES/LoginPage.png used on input line 624.
 (pdftex.def)             Requested size: 344.69766pt x 220.08562pt.
- [20 <./IMAGES/LoginPage.png>]
-File: ./IMAGES/LoginPage.png Graphic file (type png)
+ [26 <./IMAGES/LoginPage.png>]
+<./IMAGES/libraries.png, id=540, 426.84468pt x 272.51813pt>
+File: ./IMAGES/libraries.png Graphic file (type png)
 
-<use ./IMAGES/LoginPage.png>
-Package pdftex.def Info: ./IMAGES/LoginPage.png used on input line 369.
+<use ./IMAGES/libraries.png>
+Package pdftex.def Info: ./IMAGES/libraries.png used on input line 637.
 (pdftex.def)             Requested size: 344.69766pt x 220.08562pt.
- [21] [22
+ [27 <./IMAGES/libraries.png>] [28
 
 ]
-<./IMAGES/AuthSeqDiag.png, id=423, 554.82281pt x 356.0803pt>
-File: ./IMAGES/AuthSeqDiag.png Graphic file (type png)
+<./IMAGES/AuthSeqDiag.pdf, id=551, 722.7pt x 542.025pt>
+File: ./IMAGES/AuthSeqDiag.pdf Graphic file (type pdf)
 
-<use ./IMAGES/AuthSeqDiag.png>
-Package pdftex.def Info: ./IMAGES/AuthSeqDiag.png used on input line 394.
-(pdftex.def)             Requested size: 383.0pt x 245.80977pt.
- [23]
-Overfull \hbox (2.39047pt too wide) in paragraph at lines 398--399
+<use ./IMAGES/AuthSeqDiag.pdf>
+Package pdftex.def Info: ./IMAGES/AuthSeqDiag.pdf used on input line 663.
+(pdftex.def)             Requested size: 383.0pt x 287.24706pt.
+ [29]
+Overfull \hbox (2.39047pt too wide) in paragraph at lines 667--668
 []\OT1/cmr/m/n/12 Key func-tion there is \OT1/cmtt/m/n/12 openURLInDefaultBrows
 er(url)\OT1/cmr/m/n/12 . It is the method
  []
 
-<./IMAGES/ProjectsSeqDiag.png, id=430, 680.5425pt x 386.44376pt>
-File: ./IMAGES/ProjectsSeqDiag.png Graphic file (type png)
+<./IMAGES/ProjectsSeqDiag.pdf, id=558, 722.7pt x 542.025pt>
+File: ./IMAGES/ProjectsSeqDiag.pdf Graphic file (type pdf)
 
-<use ./IMAGES/ProjectsSeqDiag.png>
-Package pdftex.def Info: ./IMAGES/ProjectsSeqDiag.png used on input line 403.
-(pdftex.def)             Requested size: 383.0pt x 217.48611pt.
-
-Overfull \hbox (62.18245pt too wide) in paragraph at lines 409--410
+<use ./IMAGES/ProjectsSeqDiag.pdf>
+Package pdftex.def Info: ./IMAGES/ProjectsSeqDiag.pdf used on input line 672.
+(pdftex.def)             Requested size: 383.0pt x 287.24706pt.
+ [30 <./IMAGES/AuthSeqDiag.pdf>]
+Overfull \hbox (62.18245pt too wide) in paragraph at lines 678--679
 []\OT1/cmr/m/n/12 The key func-tions in this pro-cess are \OT1/cmtt/m/n/12 load
 Projects() \OT1/cmr/m/n/12 and \OT1/cmtt/m/n/12 displayProjects(data)\OT1/cmr/m
 /n/12 . 
  []
 
-[24 <./IMAGES/AuthSeqDiag.png>]
-Overfull \hbox (5.19542pt too wide) in paragraph at lines 413--414
+
+Overfull \hbox (5.19542pt too wide) in paragraph at lines 682--683
 \OT1/cmr/m/n/12 parses it and gen-er-ates HTML con-tent that will be in-ser-ted
  into \OT1/cmtt/m/n/12 <div></div>
  []
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 414.
+nput line 683.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 415.
-[25 <./IMAGES/ProjectsSeqDiag.png (PNG copy)>] [26]
-(./Template_BachelorsThesis.bbl [27
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 684.
+[31 <./IMAGES/ProjectsSeqDiag.pdf>] [32] [33] [34
 
-] [28
+]
+Overfull \hbox (2.00017pt too wide) in paragraph at lines 753--754
+[]\OT1/cmr/m/n/12 Also re-spons-ive-ness or our user in-ter-face was tested, pl
+ug-in was launched
+ []
+
+[35] [36] (./Template_BachelorsThesis.bbl [37
+
+] [38
 
 ]
 bibitemlist
@@ -887,13 +938,30 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 14.
 
-Underfull \hbox (badness 3579) in paragraph at lines 17--20
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
+[]\OT1/cmr/m/n/12 CNET: Adobe kills Cre-at-ive Suite, goes subscription-only.
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 12--15
+\OT1/cmr/m/n/12 2014, [On-line; ac-cessed 30-March-2015]. Avail-able at WWW:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
+\OML/cmm/m/it/12 <[]$\OT1/cmtt/m/n/12 http : / / www\OML/cmm/m/it/12 :\OT1/cmtt
+/m/n/12 cnet\OML/cmm/m/it/12 :\OT1/cmtt/m/n/12 com / news / adobe -[] kills -[]
+ creative -[] suite -[] goes -[]
+ []
+
+
+Underfull \hbox (badness 2521) in paragraph at lines 17--20
 []\OT1/cmr/m/n/12 Fadeyev, D.: 8 Char-ac-ter-ist-ics Of Suc-cess-ful User In-te
 r-faces.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--20
+Underfull \hbox (badness 6047) in paragraph at lines 17--20
 \OT1/cmr/m/n/12 2009, [On-line; ac-cessed 23-April-2015]. Avail-able at WWW:
  []
 
@@ -903,52 +971,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--20
 :\OT1/cmtt/m/n/12 com / 2009 / 04 / 15 / 8 -[] characteristics -[]
  []
 
+[39]
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no ¡ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ¡ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ˆ in font cmr12!
+Missing character: There is no Ã in font cmr12!
+Missing character: There is no ¡ in font cmr12!
+Missing character: There is no Å in font cmr12!
+Missing character: There is no ¡ in font cmr12!
+) [40] [41
 
-Underfull \hbox (badness 1163) in paragraph at lines 27--30
-\OT1/cmr/m/n/12 able at WWW: \OML/cmm/m/it/12 <[]$\OT1/cmtt/m/n/12 https : / / 
-www\OML/cmm/m/it/12 :\OT1/cmtt/m/n/12 adobe\OML/cmm/m/it/12 :\OT1/cmtt/m/n/12 c
-om / aboutadobe / pressroom /
- []
+] [42
 
-[29]
-Underfull \hbox (badness 1237) in paragraph at lines 55--58
-[]\OT1/cmr/m/n/12 Wikipedia: OAuth --- Wiki-pe-dia, The Free En-cyc-lo-pe-dia. 
-2015,
- []
+] [43] [44
 
-) [30] [31
-
-] [32
-
-] [33]
+] [45]
 \tf@toc=\write5
 \openout5 = `Template_BachelorsThesis.toc'.
 
 \tf@lof=\write6
 \openout6 = `Template_BachelorsThesis.lof'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 818.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 818.
  (./Template_BachelorsThesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 468.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 468.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 818.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 818.
 Package rerunfilecheck Info: File `Template_BachelorsThesis.out' has not change
 d.
-(rerunfilecheck)             Checksum: 91D16E3C2C0813EFA43DAF769043A93D;2169.
+(rerunfilecheck)             Checksum: C0061C86A69E0B7DD76D46F8F2BB244F;2450.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 468.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 818.
  ) 
 Here is how much of TeX's memory you used:
- 11008 strings out of 493109
- 157124 string characters out of 6138587
- 322754 words of memory out of 5000000
- 14231 multiletter control sequences out of 15000+600000
+ 11088 strings out of 493109
+ 158139 string characters out of 6138587
+ 339610 words of memory out of 5000000
+ 14268 multiletter control sequences out of 15000+600000
  11641 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,13n,40p,1110b,1026s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,40p,1110b,1763s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/20
 14/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2014/texmf
@@ -961,10 +1034,10 @@ r8.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2014/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2014/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Template_BachelorsThesis.pdf (47 pages, 371291 bytes).
+Output written on Template_BachelorsThesis.pdf (59 pages, 635396 bytes).
 PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 511 compressed objects within 6 object streams
- 140 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 868 PDF objects out of 1000 (max. 8388607)
+ 769 compressed objects within 8 object streams
+ 182 named destinations out of 1000 (max. 500000)
+ 366 words of extra memory for PDF output out of 10000 (max. 10000000)
 

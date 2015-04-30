@@ -3,45 +3,65 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Template_BachelorsThesis.aux
 The style file: iso690.bst
 Database file #1: Bibliography.bib
+You're missing a field name---line 179 of file Bibliography.bib
+ :  
+ :  %volume = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 215 of file Bibliography.bib
+ :  
+ :  %volume = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 237 of file Bibliography.bib
+ : @inbook{api_profile
+ :                    ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "api_items"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 9 entries,
+Warning--empty publisher in api_auth
+Warning--empty year in api_auth
+Warning--empty publisher in api_profile
+Warning--empty year in api_profile
+You've used 11 entries,
             3151 wiz_defined-function locations,
-            704 strings with 6867 characters,
-and the built_in function-call counts, 3131 in all, are:
-= -- 225
-> -- 77
-< -- 1
-+ -- 35
-- -- 22
-* -- 152
-:= -- 372
-add.period$ -- 18
-call.type$ -- 9
-change.case$ -- 39
+            711 strings with 6958 characters,
+and the built_in function-call counts, 4258 in all, are:
+= -- 297
+> -- 119
+< -- 5
++ -- 57
+- -- 34
+* -- 219
+:= -- 494
+add.period$ -- 22
+call.type$ -- 11
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 300
-empty$ -- 325
-format.name$ -- 23
-if$ -- 676
+cite$ -- 15
+duplicate$ -- 406
+empty$ -- 431
+format.name$ -- 37
+if$ -- 927
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 71
-newline$ -- 46
-num.names$ -- 18
-pop$ -- 183
+int.to.str$ -- 11
+missing$ -- 99
+newline$ -- 52
+num.names$ -- 22
+pop$ -- 252
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 39
 quote$ -- 0
-skip$ -- 99
+skip$ -- 141
 stack$ -- 0
-substring$ -- 93
-swap$ -- 136
-text.length$ -- 1
+substring$ -- 125
+swap$ -- 192
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
-warning$ -- 0
-while$ -- 21
-width$ -- 10
-write$ -- 95
+type$ -- 40
+warning$ -- 4
+while$ -- 28
+width$ -- 13
+write$ -- 111
+(There were 3 error messages)

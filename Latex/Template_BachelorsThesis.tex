@@ -18,6 +18,7 @@
 
 \usepackage{dirtree} %directory tree visualisation
 \usepackage{listings}
+\usepackage{verbatim}
 
 % % list of acronyms
 % \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
@@ -34,13 +35,13 @@
 \authorFN{Vanyagin} %author's surname
 \author{Dmitry Vanyagin} %author's name without academic degrees
 \authorWithDegrees{Dmitry Vanyagin} %author's name with academic degrees
-\supervisor{Petr Pulc}
-\acknowledgements{THANKS}
-\abstractEN{Summarize the contents and contribution of your work in a few sentences in English language.}
+\supervisor{Ing. Petr Pulc}
+\acknowledgements{I would like to thank my supervisor Ing. Petr Pulc for his help, support and guidance and Michal Moc{\v n}{\' a}k for providing of a working instance of NARRA.}
+\abstractEN{This bachelor thesis describes a process of development of a plug-in for Adobe Premiere Pro CC. Main goal is to allow user to communicate with NARRA web API directly from Adobe Premiere Pro interface. User will be able to browse lists of accessible footage, import it and synchronize metadata. Result of this work is an application that fulfills the requirements and can be used as a basis for future development, that provides intuitive and responsive user interface.}
 \abstractCS{V n{\v e}kolika v{\v e}t{\' a}ch shr{\v n}te obsah a p{\v r}{\' i}nos t{\' e}to pr{\' a}ce v {\v c}esk{\' e}m jazyce.}
 \placeForDeclarationOfAuthenticity{Prague}
 \keywordsCS{Replace with comma-separated list of keywords in Czech.}
-\keywordsEN{Replace with comma-separated list of keywords in English.}
+\keywordsEN{NARRA, Adobe Premiere Pro CC, RESTful API, Panel SDK, ExtendScript, Plug-in}
 \declarationOfAuthenticityOption{1} %select as appropriate, according to the desired license
 
 \graphicspath{ {./IMAGES/} }
@@ -103,14 +104,14 @@ User should be able to browse a list of his projects inside NARRA.
 User should be able to browse a list of his libraries inside NARRA.
 		\item [Displaying a list of items]
 User should be able to browse a list of his items inside NARRA.
-		\item [Searching an element]
-Plug-in should provide convenient search input field for a user to search particular element in a list.
-		\item [Importing a project from NARRA to Adobe Premiere Pro]
-User should be able to choose a project from his project list and import it in the Adobe Premiere Pro.
-		\item [Pushing changes of a project to NARRA]
-User should be able to synchronize all changes made in project with NARRA.
-		\item [Synchronization of project metadata between NARRA and local machine]
-Plug-in should support synchronization of project metadata between NARRA and Adobe Premiere Pro project.
+		\item [Searching an item]
+Plug-in should provide convenient search input field for a user to search an item in a list.
+		\item [Importing items from NARRA to Adobe Premiere Pro]
+User should be able to choose an item from his project list and import it in the Adobe Premiere Pro.
+		\item [Pushing changes of metadata of an item to NARRA]
+User should be able to synchronize all metadata changes made in item with NARRA.
+		\item [Synchronization of item metadata between NARRA and local machine]
+Plug-in should support synchronization of item metadata between NARRA and Adobe Premiere Pro project.
 		\item [Plug-in appearance should mimic design of Adobe Premiere Pro itself]
 Plug-in's appearence should look like it is a part of user interface and it should change color scheme accordingly to color scheme of Adobe Premiere Pro.
 	\end{description}
@@ -145,7 +146,7 @@ User can see a list of his/her libraries in NARRA. Requirements: User has to be 
 		\item[Import new item from NARRA]
 User wants to import an item from NARRA. Requirements: User has to be logged in. Basic scenario:
 	\begin{enumerate}
-		\item User clicks on the item in the list, menu appears.
+		\item User selects item to download.
 		\item User clicks on download option. Default browser launches and user sees all information about given item.
 		\item User clicks download button. Downloading of .zip archive starts.
 		\item User unzips archive and "drag and drops" contents of this archive into project bin inside Premiere Pro.
@@ -154,11 +155,10 @@ User wants to import an item from NARRA. Requirements: User has to be logged in.
 User wants to edit project metadata and save changes back to NARRA. User can add metadata using Adobe Premiere Pro tools. Requirements: User has to be logged in. Basic scenario:
 	\begin{enumerate}
 		\item User edits metadata of an item inside project bin using Adobe Premiere Pro tools.
-		\item User selects desired item from a list by clicking on the checkboxes near items.
-		\item User clicks "sync" button. Plugin synchronizes checked items with NARRA.
+		\item User clicks "sync" button. Plugin synchronizes items with NARRA.
 	\end{enumerate}
-		\item[Searching for a project]
-User wants to find a project in his project list. Requirements: User has to be logged in. Basic scenario: 
+		\item[Searching for an item]
+User wants to find a specific item in his item list. Requirements: User has to be logged in. Basic scenario: 
 	\begin{enumerate}
 		\item User enters the keyword in a search field.
 		\item User clicks search button or presses "Enter" key. List of items will be refreshed displaying search results.
@@ -176,7 +176,7 @@ User wants to work from another account. Basic scenario:
 	\end{description}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.7\textwidth]{UseCases.png}
+		\includegraphics[width=1\textwidth]{UseCases.pdf}
 		\caption{Use case diagram}\label{fig:usecase}
 	\end{figure}
 \section{Structure of application}
@@ -192,7 +192,7 @@ The reason why I chose this structure is because it is more logical to have two 
 		\caption{Sketch of communication with NARRA}\label{fig:narrastruct}
 	\end{figure}
 \section{Authorization}
-To communicate with NARRA, user has to be authorized. NARRA uses Google and Github identities as a user objects, that is the reason why I have to somehow embed authorization service into this plug-in. I decided to do by using a web browser and login form provided by entity providers. Basic scenarion will be like this:
+To communicate with NARRA, user has to be authorized. NARRA uses Google and Github identities as a user objects, that is the reason why I have to somehow embed authorization service into this plug-in. I decided to do it by using a web browser and login forms provided by entity providers. Basic scenarion will be like this:
 	\begin{enumerate}
 		\item User launches plug-in.
 		\item User selects authorization method.
@@ -259,7 +259,7 @@ Premiere Pro is the redesigned successor to Adobe Premiere, and was launched in 
 Adobe Premiere Pro CC 2014 uses built-in web browser for executing plug-ins, so that means that we can use standard tools for web development to implement our plug-in.
 
 \section{ExtendScript}
-ExtendScript is a programming language, that is used for scripting Adobe products. We will use it as a layer between our plug-in and Adobe Premiere Pro since it can operate functions of this software directly. It has very similar structure and syntax with JavaScript because both of these programming languages are just different versions of ECMAScript.
+ExtendScript is a programming language, that is used for scripting Adobe products. We will use it as a layer between our plug-in and Adobe Premiere Pro since it can operate functions of this software directly. It has similar structure and syntax with JavaScript, but also very limited functionality. Extend script is a language that implemented according to Ecma standard, while JavaScript currently follows its own path and that creates troubles sometimes when we try to use them together. 
 \subsection{ECMAScript}
 This Ecma Standard is based on several originating technologies, the most well known being JavaScript (Netscape) and JScript (Microsoft). The language was invented by Brendan Eich at Netscape and first appeared in that company’s Navigator 2.0 browser. It has appeared in all subsequent browsers from Netscape and in all browsers from Microsoft starting with Internet Explorer 3.0.
 
@@ -324,7 +324,275 @@ These restrictions have led to a series of workarounds, where the "real" verb is
 	\end{description}
 \subsection{NARRA API}
 NARRA API is designed following RESTful approach, HTTP protocol is used to communicate with it. I would like to describe basic requests and responses that will be useful for our plug-in:
-	
+	\begin{itemize}
+		\item \textbf{Authentication} \cite{api_auth}
+
+In order to access resources of NARRA and use it's functionality, user has to be logged in and present with an access token. Authentication request can be  initialized by following URL: 
+
+\texttt{GET auth/google}
+
+User will be redirected to authentication page of Google. After successful submission of the form user will be present with an access token:
+\begin{verbatim}
+{"status":"OK","token":"MTRzNjc2MhAxNDYzORk0NTgwAjUv"}
+\end{verbatim}
+At least first request to NARRA API has to contain copy this token in data payload.
+
+		\item \textbf{User profile} \cite{api_profile}
+
+To get information about currently signed in user, this URL should be used:
+
+\texttt{GET v1/users/me}
+
+Response might look like following:
+
+\begin{verbatim}
+{"status":"OK","user":{
+  "username":"bob",
+  "name":"Bob Example",
+  "email":"bob@example.org",
+  "image":"https://lh3.googleusercontent.com/.../photo.jpg?sz=50",
+  "roles":["author","admin"],
+  "identities":["google"]}
+}
+\end{verbatim}
+
+		\item \textbf{Items} \cite{api_items}
+
+Item is the individual video clip, image, sound file or any piece of data supported by NARRA. To get information about items this URL should be used:
+
+\texttt{GET v1/items}
+
+Result might look like following:
+\label{toc:api_items}
+\begin{verbatim}
+{"status":"OK","items":[
+  {"id":"552a33df61633249940c0000",
+   "name":"00129O-051",
+   "url":"http://example.org/00129O-051.mov",
+   "type":"video",
+   "prepared":true,
+   "thumbnails":[
+    "http://narra-storage/.../thumbnail_00000.png"
+   ],
+   "video_proxy_hq":
+    "http://narra-storage/.../video_proxy_hq.webm",
+   "video_proxy_lq":
+    "http://narra-storage/.../video_proxy_lq.webm",
+   "audio_proxy":
+    "http://narra-storage/.../audio_proxy.ogg"},
+  {"id":"552a33df61633276b1090000",
+   "name":"0013D2-013-2",
+   "url":"http://example.org/0013D2-013-2.mov",
+   "type":"video",
+   "prepared":true,
+   "thumbnails":[
+    "http://narra-storage/.../thumbnail_00000.png",
+    "http://narra-storage/.../thumbnail_00004.png"
+   ],
+   "video_proxy_hq":
+    "http://narra-storage/.../video_proxy_hq.webm",
+   "video_proxy_lq":
+    "http://narra-storage/.../video_proxy_lq.webm",
+   "audio_proxy":
+    "http://narra-storage/.../audio_proxy.ogg"}
+]}
+\end{verbatim}
+
+		\item \textbf{Specific item}
+
+In order to get information about specific item this URL should be used:
+
+\texttt{GET v1/items/552a33df61633249940c0000}
+
+Result might look like following:
+\begin{verbatim}
+{"status":"OK","item":{
+  "id":"552a33df61633249940c0000",
+  "name":"00129O-051",
+  "url":"http://example.org/00129O-051.mov",
+  "type":"video",
+  "prepared":true,
+  "library":{"id":"552a328961633276b1000000","name":"Example Library"},
+  "thumbnails":[
+   "http://narra-storage/.../thumbnail_00000.png"
+  ],
+  "video_proxy_hq":
+   "http://narra-storage/.../video_proxy_hq.webm",
+  "video_proxy_lq":
+   "http://narra-storage/.../video_proxy_lq.webm",
+  "audio_proxy":
+   "http://narra-storage/.../audio_proxy.ogg",
+  "metadata":[]
+}}
+\end{verbatim}
+
+		\item \textbf{Libraries}
+
+Libraries are used to organize items into easily manageable units. In order to get information about libraries this URL should be used:
+
+\texttt{GET v1/libraries}
+
+Response might look like following:
+\begin{verbatim}
+{"status":"OK","libraries":[
+  {"id":"5538da453533632e3c060000",
+   "name":"Example Library",
+   "description":"This is an example",
+   "author":{"username":"alice","name":"Alice Example"},
+   "thumbnails":[
+    "http://narra-storage/.../thumbnail_00012.png",
+    "http://narra-storage/.../thumbnail_00006.png",
+    "http://narra-storage/.../thumbnail_00018.png",
+    "http://narra-storage/.../thumbnail_00030.png",
+    "http://narra-storage/.../thumbnail_00024.png"
+   ],
+   "contributors":[{"username":"bob","name":"Bob Example"}]},
+  {"id":"5838da453533632e3c060000",
+   "name":"My example",
+   "description":"This is my example",
+   "author":{"username":"bob","name":"Bob Example"},
+   "thumbnails":[
+    "http://narra-storage/.../thumbnail_00006.png",
+    "http://narra-storage/.../thumbnail_00012.png",
+   ],
+   "contributors":[]}
+]}
+\end{verbatim}
+
+		\item \textbf{Specific library}
+
+To list information about specific library this URL should be used:
+
+\texttt{GET v1/libraries/5538da453533632e3c060000}
+
+Response might look like following:
+\begin{verbatim}
+{"status":"OK","library":{
+  "id":"5538da453533632e3c060000",
+  "name":"Example Library",
+  "description":"This is an example",
+  "generators":[
+   {"identifier":"att_speech",
+    "title":"AT&T Speech To Text",
+    "description":"Speech To Text Generator"}
+  ],
+  "author":{"username":"alice","name":"Alice Example"},
+  "thumbnails":[
+   "http://narra-storage/.../thumbnail_00012.png",
+   "http://narra-storage/.../thumbnail_00006.png",
+   "http://narra-storage/.../thumbnail_00018.png",
+   "http://narra-storage/.../thumbnail_00030.png",
+   "http://narra-storage/.../thumbnail_00024.png"
+  ],
+  "contributors":[{"username":"bob","name":"Bob Example"}],
+  "projects":[
+   {"id":"552a31cd6163324994020000",
+    "name":"my_project",
+    "title":"Example Project",
+    "author":{"username":"bob","name":"Bob Example"}}
+   ],
+  "metadata":[
+   {"name":"Location","value":"FAMU"},
+   {"name":"Source","value":"SD_0320"}
+  ]
+}}
+\end{verbatim}
+
+		\item \textbf{Projects}
+
+Project is the highest level of item organization, it's role is to keep organized all data involved in single piece of audiovisual work. To list all accessible projects this URL should be used:
+
+\texttt{GET v1/projects}
+
+Response might look like following:
+\begin{verbatim}
+{"status":"OK","projects":[
+  {"name":"my_project",
+   "title":"Example Project",
+   "description":"This is an example project.",
+   "author":{"username":"bob","name":"Bob Example"},
+   "public":"false",
+   "thumbnails":[
+    "http://narra-storage/.../thumbnail_00012.png",
+    "http://narra-storage/.../thumbnail_00020.png",
+    "http://narra-storage/.../thumbnail_00018.png",
+    "http://narra-storage/.../thumbnail_00008.png",
+    "http://narra-storage/.../thumbnail_00020.png"
+   ],
+   "contributors":[
+    {"username":"bob","name":"Bob Example"},
+    {"username":"alice","name":"Alice Example"}
+   ]},
+  {"name":"another",
+   "title":"Another Example",
+   "description":"This is yet another example project.",
+   "author":{"username":"bob","name":"Bob Example"},
+   "public":"false",
+   "thumbnails":[
+    "http://narra-storage/.../thumbnail_00012.png",
+    "http://narra-storage/.../thumbnail_00020.png",
+    "http://narra-storage/.../thumbnail_00018.png",
+    "http://narra-storage/.../thumbnail_00008.png",
+    "http://narra-storage/.../thumbnail_00020.png"
+   ],
+   "contributors":[]}
+]}
+\end{verbatim}
+
+		\item \textbf{Specific project}
+
+In order to list information about specific project this URL should be used:
+
+\texttt{GET v1/projects/<name>}
+
+Response might look like following:
+\begin{verbatim}
+{"status":"OK","project":{
+  "name":"my_project",
+  "title":"Example Project",
+  "description":"This is an example project.",
+  "author":{"username":"bob","name":"Bob Example"},
+  "public":"false",
+  "thumbnails":[
+   "http://narra-storage/.../thumbnail_00012.png",
+   "http://narra-storage/.../thumbnail_00020.png",
+   "http://narra-storage/.../thumbnail_00018.png",
+   "http://narra-storage/.../thumbnail_00008.png",
+   "http://narra-storage/.../thumbnail_00020.png"
+  ],
+  "contributors":[
+   {"username":"bob","name":"Bob Example"},
+   {"username":"alice","name":"Alice Example"}
+  ],
+  "libraries":[
+   {"id":"5538da453533632e3c060000",
+    "name":"Example Library",
+    "description":"This in an example",
+    "author":{"username":"alice","name":"Alice Example"},
+    "thumbnails":[
+     "http://narra-storage/.../thumbnail_00012.png",
+     "http://narra-storage/.../thumbnail_00006.png",
+     "http://narra-storage/.../thumbnail_00018.png",
+     "http://narra-storage/.../thumbnail_00030.png",
+     "http://narra-storage/.../thumbnail_00024.png"
+    ],
+    "contributors":[{"username":"bob","name":"Bob Example"}]}
+  ],
+  "metadata":[
+   {"name":"public","value":"false"},
+   {"name":"Editor","value":"Zoe Example"}
+  ]
+}}
+\end{verbatim}
+
+		\item \textbf{Project items}
+
+You can list all accessible items of specific project using this URL:
+
+\texttt{GET v1/projects/<name>/items}
+
+It will return information about items corresponding to a given project, response has almost the same format as previously specified in \ref{toc:api_items}.
+	\end{itemize}
 \chapter{Design}
 In this chapter I would like to describe process of designing user interface and structure of my application.
 \section{User interface}
@@ -366,10 +634,11 @@ On top of the screen you can see username of a logged in user, NARRA logo and a 
 Final design of a project list you can see on figure \ref{fig:projects}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.9\textwidth]{LoginPage.png}
-		\caption{Login screen of the plug-in}\label{fig:projects}
+		\includegraphics[width=0.9\textwidth]{libraries.png}
+		\caption{List of projects}\label{fig:projects}
 	\end{figure}
 \subsection{List of items}
+To visualize a list of items I decided to use tiles. After playing with layouts, I figured out that four tiles in a row is the optimal amount, because it is big enough and utilizes space efficiently at the same time. Below every tile I placed name of the item. I will use the same layout for displaying search results.
 \chapter{Implementation}
 \section{Application architecture}
 Architecture of this plug-in is not complicated, best practices for web development were used, basically we are dealing with front-end development workflow. I this case, I decided to split different views into different HTML files:
@@ -391,7 +660,7 @@ In the next section I would like to describe implementation of somel key functio
 Lets describe the very first process that user will go through. On the figure \ref{fig:seq_auth} you can see a sequence diagram of a process where user goes through authorization and after it receives a token that will be used for communication with NARRA.
 	\begin{figure}
 		\centering
-		\includegraphics[width=1\textwidth]{AuthSeqDiag.png}
+		\includegraphics[width=1\textwidth]{AuthSeqDiag.pdf}
 		\caption{Sequence diagram of authorization process}\label{fig:seq_auth}
 	\end{figure}
 
@@ -400,7 +669,7 @@ Key function there is \texttt{openURLInDefaultBrowser(url)}. It is the method of
 This process starts with a press of a button and resulting in displaying of the list of a projects inside our plug-in. You can see sequence diagram on the figure \ref{fig:seq_project}.
 	\begin{figure}
 		\centering
-		\includegraphics[width=1\textwidth]{ProjectsSeqDiag.png}
+		\includegraphics[width=1\textwidth]{ProjectsSeqDiag.pdf}
 		\caption{Sequence diagram of getting projects list process}\label{fig:seq_project}
 	\end{figure}
 
@@ -429,10 +698,76 @@ function loadProjects() {
 \end{lstlisting}
 
 \subsection{Communication with Adobe Premiere Pro}
+In order to communicate with Adobe Premiere Pro and to manipulate it's functions, we have to use ExtendScript programming language. Right now there is almost no information about this language available and it is poorly documented. I had to use samples provided by Adobe and figure out syntax and functions myself.
 
+If we want to execute an ExtendScript function from our plugin, we have to use \texttt{evalScript(name, callback)} method, provided by CSInterface class and pass the name of the function with all it's parameters as a string. Callback function will get data returned after evaluating ExtendScipt function, there we can somehow work with it.
+
+Example of code provided by Adobe:  
+\begin{lstlisting}[caption=Evaluating createSequenceFromPreset function from sample panel, label=lst:lst_eval]
+var csInterface = new CSInterface();
+var path = csInterface.getSystemPath(SystemPath.EXTENSION);
+
+if (path != null)
+{
+	path = path + '/payloads/PProPanel.sqpreset';
+}
+var pre = '$._ext_PPRO.createSequenceFromPreset(\'';
+var post      = '\'';
+var postpost  = ')';
+
+var whole_megillah =  pre + path + post + postpost;
+           	
+csInterface.evalScript(whole_megillah);
+\end{lstlisting}
+As we can see, working with ExtendScript from JavaScript is not the most pleasant job. Also I want to mention process of passing arrays and objects from/to ExtendScript, it is very unconvenient and requires a lot of parsing, because all arrays and objects transform to strings.
+
+I decided to implement synchronization mechanism using \texttt{sync()} function that crawls through project bins and collects ID's of items inside them. After it, array of ID's is returned back to our panel and processed by JavaScript, for each ID AJAX request is sent to NARRA to get information about each item inside project bin. After all information about items is received, array of item names is passed back to ExtendScript function \texttt{renameFootage()}, which renames items according to their names in NARRA.
+
+\subsection{Sequence import}
+Currently NARRA is still in development and many features and functions are not implemented yet, lates build doesn't provide a possibility to synchronize sequences between NARRA and our plug-in, so I would like to propose a way how it might be realized in future.
+
+\textbf{EDL} is a file format that is widely used by video editors, it consists from reel and timecode data that represents when and where each video clip should be used. Example of EDL file:
+\begin{lstlisting}[caption=Part of EDL file, label=lst:lst_edl]
+007  A004C018 V     C        00:00:20:16 00:00:22:14 00:02:00:07 00:02:02:05
+* FROM CLIP NAME: A1B TK2
+ 
+008  B004C011 V     C        16:47:08:10 16:47:11:08 00:02:02:05 00:02:05:03
+* FROM CLIP NAME: B1B TK4
+\end{lstlisting}
+Adobe Premiere Pro provides a way to export and import EDL files, so we can use this possibility to synchronize sequences between our plug-in and NARRA. Basic scenario for sequence importing could be like this:
+	\begin{enumerate}
+		\item User double clicks on a sequence inside our application.
+		\item Default browser launches and downloading of a chosen sequence starts.
+		\item User imports downloaded EDL file using Adobe Premiere Pro built-in tools. 
+	\end{enumerate}
+In order to successfully import a sequence, all video clips that are used, have to be imported in advance.
+\chapter{Testing}
+Tests are very important in software engineering process, they demonstrate if application met the requirements and help in revealing problems and bugs.
+
+Our application consists mostly from user interface with some application logic, I will describe testing process of these parts in next sections.
+\section{User interface}
+User interface is one of the most important parts of our plug-in, it should be very intuitive and clear, so that it won't confuse user or slow his/her workflow.
+
+First of all, as was specified in requirements, application should integrate into Adobe Premiere Pro interface seamlessly, mimic it's style and has the same color schemes. I tried to manipulate appearance settings using built-in tools, our plug-in was changing colors and fonts accordingly.
+
+Also responsiveness or our user interface was tested, plug-in was launched on different screen sizes, layout always remained the same. User gets visual notifications when time-consuming process is launched (rotating icon when synchronization of metadata is started). 
+\section{Business logic}
+For business logic testing I used real use cases:
+	\begin{itemize}
+		\item Authorization and logout.
+		\item Browsing projects/libraries/items.
+		\item Synchronization of items metadata.
+	\end{itemize}
+For the last one, we prepared \texttt{.zip} archive containing four footages from NARRA. We imported extracted files into Adobe Premiere Pro project bin and synchronized names of files with NARRA.
+
+Our application passed all functional tests and fulfilled the requirements.
 \setsecnumdepth{part}
 \chapter{Conclusion}
+Result of this thesis is working plug-in for Adobe Premiere Pro that fulfills the requirements. It allows users to browse projects, libraries and items inside NARRA and to synchronize metadata of items. While working on this thesis I've encountered various problems and complications, result of the biggest one is complete changing of working environment - we switched from developing in C++ using Adobe Premiere Pro SDK to Panel SDK and Web development workflow with JavaScript and ExtendScript as the main players. 
 
+This plug-in can be used as a basis for future extensions, to fully utilize all possibilities of NARRA when something new will be added to the system. 
+
+This project tought me how to quickly find solutions for arising problems, lack of ExtendScript documentation forced me to learn this language by analyzing source codes of different applications that are written in it. I have gained valuable experience and improved my technical skills.
 
 \bibliographystyle{iso690}
 \bibliography{Bibliography}
@@ -440,11 +775,26 @@ function loadProjects() {
 \setsecnumdepth{all}
 \appendix
 
+\chapter{User guide}
+
+
 \chapter{Acronyms}
 % \printglossaries
 \begin{description}
 	\item[GUI] Graphical user interface
-	\item[XML] Extensible markup language
+	\item[SDK] Software Development Kit
+	\item[API] Application programming interface
+	\item[HTTP] Hypertext Transfer Protocol
+	\item[URL] Uniform resource locator
+	\item[CSS] Cascading Style Sheets
+	\item[HTML] HyperText Markup Language
+	\item[JSON] JavaScript Object Notation
+	\item[EDL] Edit decision list
+	\item[XML] Extensible Markup Language
+	\item[PDF] Portable Document Format
+	\item[JPEG] Joint Photographic Experts Group
+	\item[REST] Representational state transfer
+	\item[UI] User interface
 \end{description}
 
 
