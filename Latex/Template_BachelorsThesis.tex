@@ -623,6 +623,16 @@ To store metadata, Adobe Premiere Pro uses \textbf{Extensible Metadata Platform}
    <tiff:ImageLength>2848</tiff:ImageLength>
   </rdf:Description>
 \end{lstlisting}
+
+\subsection{Metadata synchronization with NARRA}
+I would like to propose a model for metadata synchronization. Adobe Premiere Pro provides possibility to access \texttt{.xmp} files using ExtendScript. This way we can read those files, parse them and compare with data recieve from NARRA.
+
+When user launches synchronization process, three situations may appear:
+	\begin{enumerate}
+		\item Element inside project bin doesn't have metadata specified (no XMP file). In this situation our plug-in should parse metadata received from NARRA, present this information as XML structured text and generate XMP file using ExtendScript functions.
+		\item Element inside project bin has metadata assigned, but it differs from one that inside NARRA. In that case our plug-in should parse received data and change corresponding fileds inside XMP file.
+		\item Element inside project bin has metadata assigned and values are the same as inside NARRA. In that case our plug-in shouldn't do anything.
+	\end{enumerate}
 \chapter{Paradigm shift}
 At first glance we thought that Creative Suite version of Adobe Premiere Pro with provided SDK will be enough to implement desired functionality of the plug-in, but we encountered a problem with operating multiple files in project bin. There is no possibility to realize correct importing of project files into Adobe Premiere Pro CS5.5, so we decided to completely shift our paradigm and choose different approach to problem solving. We understand that we lose the flexibility of C language and possibility of usage many different frameworks and libraries, but in order to realize our needs it is necessary.
 
@@ -852,6 +862,7 @@ This project tought me how to quickly find solutions for arising problems, lack 
 	\item[JPEG] Joint Photographic Experts Group
 	\item[REST] Representational state transfer
 	\item[UI] User interface
+	\item[XMP] Extensible Metadata Platform
 \end{description}
 
 

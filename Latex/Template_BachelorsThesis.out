@@ -16,28 +16,29 @@
 \BOOKMARK [1][-]{section.1.7}{Metadata}{chapter.1}% 16
 \BOOKMARK [2][-]{subsection.1.7.1}{Dublin Core metadata standard}{section.1.7}% 17
 \BOOKMARK [2][-]{subsection.1.7.2}{NARRA metadata element set}{section.1.7}% 18
-\BOOKMARK [0][-]{chapter.2}{Paradigm shift}{}% 19
-\BOOKMARK [1][-]{section.2.1}{Adobe Premiere Pro CC}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.1.1}{Overview}{section.2.1}% 21
-\BOOKMARK [2][-]{subsection.2.1.2}{History}{section.2.1}% 22
-\BOOKMARK [1][-]{section.2.2}{ExtendScript}{chapter.2}% 23
-\BOOKMARK [2][-]{subsection.2.2.1}{ECMAScript}{section.2.2}% 24
-\BOOKMARK [0][-]{chapter.3}{Design}{}% 25
-\BOOKMARK [1][-]{section.3.1}{User interface}{chapter.3}% 26
-\BOOKMARK [2][-]{subsection.3.1.1}{Login page}{section.3.1}% 27
-\BOOKMARK [2][-]{subsection.3.1.2}{Project list}{section.3.1}% 28
-\BOOKMARK [2][-]{subsection.3.1.3}{List of items}{section.3.1}% 29
-\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 30
-\BOOKMARK [1][-]{section.4.1}{Application architecture}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{Realization of application logic}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.2.1}{Authorization}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.2}{Displaying project list}{section.4.2}% 34
-\BOOKMARK [2][-]{subsection.4.2.3}{Communication with Adobe Premiere Pro}{section.4.2}% 35
-\BOOKMARK [0][-]{chapter.5}{Testing}{}% 36
-\BOOKMARK [1][-]{section.5.1}{User interface}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.2}{Business logic}{chapter.5}% 38
-\BOOKMARK [0][-]{chapter*.6}{Conclusion}{}% 39
-\BOOKMARK [0][-]{section*.8}{Bibliography}{}% 40
-\BOOKMARK [0][-]{appendix.A}{User guide}{}% 41
-\BOOKMARK [0][-]{appendix.B}{Acronyms}{}% 42
-\BOOKMARK [0][-]{appendix.C}{Contents of enclosed CD}{}% 43
+\BOOKMARK [2][-]{subsection.1.7.3}{Metadata synchronization with NARRA}{section.1.7}% 19
+\BOOKMARK [0][-]{chapter.2}{Paradigm shift}{}% 20
+\BOOKMARK [1][-]{section.2.1}{Adobe Premiere Pro CC}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.1.1}{Overview}{section.2.1}% 22
+\BOOKMARK [2][-]{subsection.2.1.2}{History}{section.2.1}% 23
+\BOOKMARK [1][-]{section.2.2}{ExtendScript}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.1}{ECMAScript}{section.2.2}% 25
+\BOOKMARK [0][-]{chapter.3}{Design}{}% 26
+\BOOKMARK [1][-]{section.3.1}{User interface}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.1.1}{Login page}{section.3.1}% 28
+\BOOKMARK [2][-]{subsection.3.1.2}{Project list}{section.3.1}% 29
+\BOOKMARK [2][-]{subsection.3.1.3}{List of items}{section.3.1}% 30
+\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Application architecture}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.2}{Realization of application logic}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.2.1}{Authorization}{section.4.2}% 34
+\BOOKMARK [2][-]{subsection.4.2.2}{Displaying project list}{section.4.2}% 35
+\BOOKMARK [2][-]{subsection.4.2.3}{Communication with Adobe Premiere Pro}{section.4.2}% 36
+\BOOKMARK [0][-]{chapter.5}{Testing}{}% 37
+\BOOKMARK [1][-]{section.5.1}{User interface}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.2}{Business logic}{chapter.5}% 39
+\BOOKMARK [0][-]{chapter*.6}{Conclusion}{}% 40
+\BOOKMARK [0][-]{section*.8}{Bibliography}{}% 41
+\BOOKMARK [0][-]{appendix.A}{User guide}{}% 42
+\BOOKMARK [0][-]{appendix.B}{Acronyms}{}% 43
+\BOOKMARK [0][-]{appendix.C}{Contents of enclosed CD}{}% 44
