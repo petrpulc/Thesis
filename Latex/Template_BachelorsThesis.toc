@@ -10,35 +10,38 @@
 \contentsline {subsection}{\numberline {1.1.2}Non-Functional requirements}{4}{subsection.1.1.2}
 \contentsline {section}{\numberline {1.2}Use cases}{4}{section.1.2}
 \contentsline {section}{\numberline {1.3}Structure of application}{7}{section.1.3}
-\contentsline {section}{\numberline {1.4}Authorization}{8}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}OAuth 2.0}{8}{subsection.1.4.1}
-\contentsline {section}{\numberline {1.5}Paradigm shift}{10}{section.1.5}
-\contentsline {section}{\numberline {1.6}Adobe Premiere Pro CC}{11}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Overview}{11}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}History}{11}{subsection.1.6.2}
-\contentsline {section}{\numberline {1.7}ExtendScript}{12}{section.1.7}
-\contentsline {subsection}{\numberline {1.7.1}ECMAScript}{12}{subsection.1.7.1}
-\contentsline {section}{\numberline {1.8}Web API}{14}{section.1.8}
-\contentsline {subsection}{\numberline {1.8.1}SOAP}{14}{subsection.1.8.1}
-\contentsline {subsection}{\numberline {1.8.2}REST}{16}{subsection.1.8.2}
-\contentsline {subsection}{\numberline {1.8.3}NARRA API}{17}{subsection.1.8.3}
-\contentsline {chapter}{\chapternumberline {2}Design}{25}{chapter.2}
-\contentsline {section}{\numberline {2.1}User interface}{25}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Login page}{26}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Project list}{26}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}List of items}{27}{subsection.2.1.3}
-\contentsline {chapter}{\chapternumberline {3}Implementation}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Application architecture}{29}{section.3.1}
-\contentsline {section}{\numberline {3.2}Realization of application logic}{30}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Authorization}{30}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Displaying project list}{30}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Communication with Adobe Premiere Pro}{32}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Sequence import}{33}{subsection.3.2.4}
-\contentsline {chapter}{\chapternumberline {4}Testing}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}User interface}{35}{section.4.1}
-\contentsline {section}{\numberline {4.2}Business logic}{35}{section.4.2}
-\contentsline {chapter}{Conclusion}{37}{chapter*.6}
-\contentsline {chapter}{Bibliography}{39}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}User guide}{41}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Acronyms}{43}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Contents of enclosed CD}{45}{appendix.C}
+\contentsline {section}{\numberline {1.4}Web API}{8}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}SOAP}{8}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}REST}{9}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}NARRA API}{11}{subsection.1.4.3}
+\contentsline {section}{\numberline {1.5}Authorization}{17}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}OAuth 2.0}{18}{subsection.1.5.1}
+\contentsline {section}{\numberline {1.6}Sequences}{20}{section.1.6}
+\contentsline {section}{\numberline {1.7}Metadata}{21}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Dublin Core metadata standard}{21}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}NARRA metadata element set}{22}{subsection.1.7.2}
+\contentsline {chapter}{\chapternumberline {2}Paradigm shift}{25}{chapter.2}
+\contentsline {section}{\numberline {2.1}Adobe Premiere Pro CC}{26}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Overview}{26}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}History}{27}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}ExtendScript}{27}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}ECMAScript}{27}{subsection.2.2.1}
+\contentsline {chapter}{\chapternumberline {3}Design}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}User interface}{31}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Login page}{32}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Project list}{32}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}List of items}{33}{subsection.3.1.3}
+\contentsline {chapter}{\chapternumberline {4}Implementation}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Application architecture}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Realization of application logic}{36}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Authorization}{36}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Displaying project list}{36}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Communication with Adobe Premiere Pro}{38}{subsection.4.2.3}
+\contentsline {chapter}{\chapternumberline {5}Testing}{41}{chapter.5}
+\contentsline {section}{\numberline {5.1}User interface}{41}{section.5.1}
+\contentsline {section}{\numberline {5.2}Business logic}{41}{section.5.2}
+\contentsline {chapter}{Conclusion}{43}{chapter*.6}
+\contentsline {chapter}{Bibliography}{45}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}User guide}{47}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Acronyms}{49}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Contents of enclosed CD}{51}{appendix.C}

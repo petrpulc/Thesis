@@ -3,17 +3,17 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Template_BachelorsThesis.aux
 The style file: iso690.bst
 Database file #1: Bibliography.bib
-You're missing a field name---line 179 of file Bibliography.bib
+You're missing a field name---line 195 of file Bibliography.bib
  :  
  :  %volume = "",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 215 of file Bibliography.bib
+You're missing a field name---line 231 of file Bibliography.bib
  :  
  :  %volume = "",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 237 of file Bibliography.bib
+Repeated entry---line 253 of file Bibliography.bib
  : @inbook{api_profile
  :                    ,
 I'm skipping whatever remains of this entry
@@ -23,45 +23,45 @@ Warning--empty publisher in api_auth
 Warning--empty year in api_auth
 Warning--empty publisher in api_profile
 Warning--empty year in api_profile
-You've used 11 entries,
+You've used 12 entries,
             3151 wiz_defined-function locations,
-            711 strings with 6958 characters,
-and the built_in function-call counts, 4258 in all, are:
-= -- 297
-> -- 119
+            717 strings with 7094 characters,
+and the built_in function-call counts, 4555 in all, are:
+= -- 318
+> -- 126
 < -- 5
-+ -- 57
-- -- 34
-* -- 219
-:= -- 494
-add.period$ -- 22
-call.type$ -- 11
-change.case$ -- 49
++ -- 60
+- -- 36
+* -- 232
+:= -- 530
+add.period$ -- 24
+call.type$ -- 12
+change.case$ -- 53
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 406
-empty$ -- 431
-format.name$ -- 37
-if$ -- 927
+cite$ -- 16
+duplicate$ -- 435
+empty$ -- 463
+format.name$ -- 39
+if$ -- 991
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 99
-newline$ -- 52
-num.names$ -- 22
-pop$ -- 252
+int.to.str$ -- 12
+missing$ -- 106
+newline$ -- 56
+num.names$ -- 24
+pop$ -- 271
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 42
 quote$ -- 0
-skip$ -- 141
+skip$ -- 150
 stack$ -- 0
-substring$ -- 125
-swap$ -- 192
+substring$ -- 132
+swap$ -- 204
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 40
+type$ -- 44
 warning$ -- 4
-while$ -- 28
-width$ -- 13
-write$ -- 111
+while$ -- 30
+width$ -- 14
+write$ -- 120
 (There were 3 error messages)

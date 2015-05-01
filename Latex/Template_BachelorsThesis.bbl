@@ -23,6 +23,10 @@ Google: Using OAuth 2.0 for Installed Applications --- Google Accounts ----
   Google Developers. 2014, [Online; accessed 29-March-2015].
 \urlprefix\biburl{https://developers.google.com/accounts/docs/OAuth2InstalledApp}
 
+\bibitem{dublincore}
+Hillmann, D.: Using Dublin Core. 2005, [Online; accessed 28-April-2015].
+\urlprefix\biburl{http://dublincore.org/documents/usageguide/}
+
 \bibitem{bbc}
 Incorporated, A.~S.: Adobe Creative Suite 3 Production Premium Wins in
   Broadcasting. 2007, [Online; accessed 28-March-2015].
@@ -47,10 +51,11 @@ Pautasso, C.; Zimmermann, O.; Leymann, F.: Restful Web Services vs. "Big"' Web
 \urlprefix\biburl{http://doi.acm.org/10.1145/1367497.1367606}
 
 \bibitem{api_auth}
-Pulc, P.; Mocňák, M.; Pešek, K.: \emph{NARRA}, chapter~1. pp. {6--7}.
+Pulc, P.; Moc{\v n}{\' a}k, M.; Pe{\v s}ek, K.: \emph{NARRA}, chapter~1. pp.
+  {6--7}.
 
 \bibitem{api_profile}
-Pulc, P.; Mocňák, M.; Pešek, K.: \emph{NARRA}, chapter~1. p.~8.
+Pulc, P.; Moc{\v n}{\' a}k, M.; Pe{\v s}ek, K.: \emph{NARRA}, chapter~1. p.~8.
 
 \bibitem{adobe}
 Wikipedia: Adobe Premiere Pro --- Wikipedia{,} The Free Encyclopedia. 2015,

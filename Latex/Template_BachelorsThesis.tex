@@ -191,88 +191,6 @@ The reason why I chose this structure is because it is more logical to have two 
 		\includegraphics[width=1\textwidth]{StructureofNARRA.png}
 		\caption{Sketch of communication with NARRA}\label{fig:narrastruct}
 	\end{figure}
-\section{Authorization}
-To communicate with NARRA, user has to be authorized. NARRA uses Google and Github identities as a user objects, that is the reason why I have to somehow embed authorization service into this plug-in. I decided to do it by using a web browser and login forms provided by entity providers. Basic scenarion will be like this:
-	\begin{enumerate}
-		\item User launches plug-in.
-		\item User selects authorization method.
-		\item Browser window opens up and redirects to Google/Github (depends on the user's choice).
-		\item User sees login form.
-		\item User enters his/her username and password and allows plug-in to use profile data.
-		\item User copies token from browser window and copies it back to NARRA plug-in
-	\end{enumerate}
-I decided to make user copy token manually because of the built-in browser limitations, it is impossible to create another tab or make a popup, so I have to use default browser for user authorization. I didn't find any way how to pass token from one browser to another, so manual way is the only solution for now.   
-\subsection{OAuth 2.0}
-OAuth is an open standard for authorization. OAuth provides client applications a "secure delegated access" to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials. 
-
-Designed specifically to work with Hypertext Transfer Protocol (HTTP), OAuth essentially allows access tokens to be issued to third-party clients by an authorization server, with the approval of the resource owner, or end-user. The client then uses the access token to access the protected resources hosted by the resource server. OAuth is commonly used as a way for web surfers to log into third party web sites using their Microsoft, Google, Facebook or Twitter accounts, without worrying about their access credentials being compromised.\cite{oauth}
-
-In order to use OAuth 2.0, the installed application must either have access to the system browser, or it must have a browser embedded as a web view. The OAuth 2.0 flow for installed applications is as follows:
-	\begin{enumerate}
-		\item Your application redirects a browser to a Google URL. The URL query parameters indicate the type of Google API access that the application requires.
-		\item As in other scenarios, Google handles user authentication and consent, and the result of the sequence is an authorization code. The authorization code is returned in the title bar of the browser or as a query string parameter, depending on the parameters your application sends in the request.
-		\item Your application exchanges the authorization code for an access token and a refresh token. During this exchange, the application presents its client ID and client secret that is obtained from the Developers Console.
-		\item Your application uses the access token to make calls to a Google API and stores the refresh token for future use.\cite{oauthdesc}
-	\end{enumerate}
-As we can see from OAuth web flow (figure \ref{fig:oauth}), authorization process goes in two steps, I need to somehow do it in a way that is convenient for a user. I decided to start this process by pressing a button, request token will be formed automatically and sent to Google. Second task is to figure out how to get authorization code to our application in order to exchange it for an access token later. One way is to make user to enter authorization code to the application (that will be displayed in browser window after user provide his/her credentials and agrees that our plug-in will use profile information), second way is to get this code as part of the query string that is sent to localhost.\cite{oauthdesc}
-
-Parameters that are interesting for us to form request token:
-	\begin{description}
-		\item[redirect\_uri] 
-Determines where the response is sent. The value of this parameter must exactly match one of the values that appear in the Credentials page in the Google Developers Console (including the http or https scheme, case, and trailing slash). You may choose between urn:ietf:wg:oauth:2.0:oob, urn:ietf:wg:oauth:2.0:oob:auto, or an http://localhost port. Value of this parameter will determine the way of getting authorization code that we will exchange for an access token.
-		\item[client\_id] 
-Identifies the client that is making the request. The value passed in this parameter must exactly match the value shown in the Google Developers Console.
-	\end{description}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\textwidth]{oauthwebflow.png}
-		\caption{OAuth web flow}\label{fig:oauth}
-	\end{figure}
-\section{Paradigm shift}
-At first glance we thought that Creative Suite version of Adobe Premiere Pro with provided SDK will be enough to implement desired functionality of the plug-in, but we encountered a problem with operating multiple files in project bin. There is no possibility to realize correct importing of project files into Adobe Premiere Pro CS5.5, so we decided to completely shift our paradigm and choose different approach to problem solving. We understand that we lose the flexibility of C language and possibility of usage many different frameworks and libraries, but in order to realize our needs it is necessary.
-
-From this point we are switching from Adobe Premiere Pro CS5.5 version to CC 2014 version, that means:
-	\begin{itemize}
-		\item Adobe Premiere Pro SDK no longer needed, Panel SDK will be used.
-		\item We are switching from development in C to development in JavaScript and ExtendScript, because CC 2014 version of Adobe Premiere Pro uses Chromium web browser for execution of plug-ins.
-		\item All communication with Adobe Premiere Pro will be carried by ExtendScript functions.
-		\item We no longer need to make two separate plug-ins for importing and exporting libraries and items from NARRA. We are going to make it as a single plug-in that will be synchronizing elements on local machine with elements in NARRA storage. 
-	\end{itemize}
-\section{Adobe Premiere Pro CC}
-Creative Cloud (CC) version of Adobe products is the successor to Creative Suite that we chose as our working environment before encountering a problem. Adobe Premiere Pro CC allows us to use Panel SDK that provides much more functionality in comparison with SDK for Creative Suite version of video editing tool. 
-
-Adobe announced that it will no longer release any products of CS version\cite{CC}, so choosing CC we also looking to the future. 
-
-\subsection{Overview}
-Adobe Premiere Pro is a timeline-based video editing software application. It is part of the Adobe Creative Cloud, which includes video editing, graphic design, and web development programs.
-
-Premiere Pro has been used to edit feature films, such as Gone Girl, Captain Abu Raed, and Monsters, and other venues such as Madonna's Confessions Tour.\cite{adobe}
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.1\textwidth]{PremiereMain.png}
-		\caption{Adobe Premiere Pro CS5.5 window}\label{fig:APPWindow}
-	\end{figure}
-\subsection{History}
-Premiere Pro is the redesigned successor to Adobe Premiere, and was launched in 2003. Premiere Pro refers to versions released in 2003 and later, whereas Premiere refers to the earlier releases. Premiere was one of the first computer-based NLEs (non-linear editing system), with its first release on Mac in 1991. Up until version Premiere Pro 2.0 (CS2), the software packaging featured a galloping horse, in a nod to Eadweard Muybridge's work, "Sallie Gardner at a Gallop".\cite{adobe}
-	
-Adobe Premiere Pro CC 2014 uses built-in web browser for executing plug-ins, so that means that we can use standard tools for web development to implement our plug-in.
-
-\section{ExtendScript}
-ExtendScript is a programming language, that is used for scripting Adobe products. We will use it as a layer between our plug-in and Adobe Premiere Pro since it can operate functions of this software directly. It has similar structure and syntax with JavaScript, but also very limited functionality. Extend script is a language that implemented according to Ecma standard, while JavaScript currently follows its own path and that creates troubles sometimes when we try to use them together. 
-\subsection{ECMAScript}
-This Ecma Standard is based on several originating technologies, the most well known being JavaScript (Netscape) and JScript (Microsoft). The language was invented by Brendan Eich at Netscape and first appeared in that company’s Navigator 2.0 browser. It has appeared in all subsequent browsers from Netscape and in all browsers from Microsoft starting with Internet Explorer 3.0.
-
-ECMAScript is an object-oriented programming language for performing computations and manipulating computational objects within a host environment. ECMAScript is not intended to be computationally self-sufficient; indeed, there are no provisions in this specification for input of external data or output of computed results. Instead, it is expected that the computational environment of an ECMAScript program will provide not only the objects and other facilities described in this specification but also certain environment-specific host objects, whose description and behaviour are beyond the scope of this specification except to indicate that they may provide certain properties that can be accessed and certain functions that can be called from an ECMAScript program.
-
-A \textbf{scripting language} is a programming language that is used to manipulate, customise, and automate the facilities of an existing system. In such systems, useful functionality is already available through a user interface, and the scripting language is a mechanism for exposing that functionality to program control. In this way, the existing system is said to provide a host environment of objects and facilities, which completes the capabilities of the scripting language. A scripting language is intended for use by both professional and non-professional programmers.
-
-	\begin{itemize}
-\item ECMAScript is object-based: basic language and host facilities are provided by objects, and an ECMAScript program is a cluster of communicating objects. An ECMAScript object is a collection of properties each with zero or more attributes that determine how each property can be used - for example, when the Writable attribute for a property is set to false, any attempt by executed ECMAScript code to change the value of the property fails. Properties are containers that hold other objects, primitive values, or functions. A primitive value is a member of one of the following built-in types: Undefined, Null, Boolean, Number, and String; an object is a member of the remaining built-in type Object; and a function is a callable object. A function that is associated with an object via a property is a method.
-\item ECMAScript defines a collection of built-in objects that round out the definition of ECMAScript entities. These built-in objects include the global object, the Object object, the Function object, the Array object, the String object, the Boolean object, the Number object, the Math object, the Date object, the RegExp object, the JSON object, and the Error objects Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError and URIError.
-\item ECMAScript also defines a set of built-in operators. ECMAScript operators include various unary operations, multiplicative operators, additive operators, bitwise shift operators, relational operators, equality operators, binary bitwise operators, binary logical operators, assignment operators, and the comma operator.
-\item ECMAScript syntax intentionally resembles Java syntax. ECMAScript syntax is relaxed to enable it to serve as an easy-to-use scripting language. For example, a variable is not required to have its type declared nor are types associated with properties, and defined functions are not required to have their declarations appear textually before calls to them.\cite{ecma}
-	\end{itemize}
 
 \section{Web API}
 I this section I would like to describe a layer between our plug-in and NARRA. At first I will analyze different methods of building web API like SOAP and REST, compare them and then I will write about particular implementation of NARRA API.
@@ -593,6 +511,163 @@ You can list all accessible items of specific project using this URL:
 
 It will return information about items corresponding to a given project, response has almost the same format as previously specified in \ref{toc:api_items}.
 	\end{itemize}
+\section{Authorization}
+To communicate with NARRA, user has to be authorized. NARRA uses Google and Github identities as a user objects, that is the reason why I have to somehow embed authorization service into this plug-in. I decided to do it by using a web browser and login forms provided by entity providers. Basic scenarion will be like this:
+	\begin{enumerate}
+		\item User launches plug-in.
+		\item User selects authorization method.
+		\item Browser window opens up and redirects to Google/Github (depends on the user's choice).
+		\item User sees login form.
+		\item User enters his/her username and password and allows plug-in to use profile data.
+		\item User copies token from browser window and copies it back to NARRA plug-in
+	\end{enumerate}
+I decided to make user copy token manually because of the built-in browser limitations, it is impossible to create another tab or make a popup, so I have to use default browser for user authorization. I didn't find any way how to pass token from one browser to another, so manual way is the only solution for now.   
+\subsection{OAuth 2.0}
+OAuth is an open standard for authorization. OAuth provides client applications a "secure delegated access" to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials. 
+
+Designed specifically to work with Hypertext Transfer Protocol (HTTP), OAuth essentially allows access tokens to be issued to third-party clients by an authorization server, with the approval of the resource owner, or end-user. The client then uses the access token to access the protected resources hosted by the resource server. OAuth is commonly used as a way for web surfers to log into third party web sites using their Microsoft, Google, Facebook or Twitter accounts, without worrying about their access credentials being compromised.\cite{oauth}
+
+In order to use OAuth 2.0, the installed application must either have access to the system browser, or it must have a browser embedded as a web view. The OAuth 2.0 flow for installed applications is as follows:
+	\begin{enumerate}
+		\item Your application redirects a browser to a Google URL. The URL query parameters indicate the type of Google API access that the application requires.
+		\item As in other scenarios, Google handles user authentication and consent, and the result of the sequence is an authorization code. The authorization code is returned in the title bar of the browser or as a query string parameter, depending on the parameters your application sends in the request.
+		\item Your application exchanges the authorization code for an access token and a refresh token. During this exchange, the application presents its client ID and client secret that is obtained from the Developers Console.
+		\item Your application uses the access token to make calls to a Google API and stores the refresh token for future use.\cite{oauthdesc}
+	\end{enumerate}
+As we can see from OAuth web flow (figure \ref{fig:oauth}), authorization process goes in two steps, I need to somehow do it in a way that is convenient for a user. I decided to start this process by pressing a button, request token will be formed automatically and sent to Google. Second task is to figure out how to get authorization code to our application in order to exchange it for an access token later. One way is to make user to enter authorization code to the application (that will be displayed in browser window after user provide his/her credentials and agrees that our plug-in will use profile information), second way is to get this code as part of the query string that is sent to localhost.\cite{oauthdesc}
+
+Parameters that are interesting for us to form request token:
+	\begin{description}
+		\item[redirect\_uri] 
+Determines where the response is sent. The value of this parameter must exactly match one of the values that appear in the Credentials page in the Google Developers Console (including the http or https scheme, case, and trailing slash). You may choose between urn:ietf:wg:oauth:2.0:oob, urn:ietf:wg:oauth:2.0:oob:auto, or an http://localhost port. Value of this parameter will determine the way of getting authorization code that we will exchange for an access token.
+		\item[client\_id] 
+Identifies the client that is making the request. The value passed in this parameter must exactly match the value shown in the Google Developers Console.
+	\end{description}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{oauthwebflow.png}
+		\caption{OAuth web flow}\label{fig:oauth}
+	\end{figure}
+
+\section{Sequences}
+Currently NARRA is still in development and many features and functions are not implemented yet, lates build doesn't provide a possibility to synchronize sequences between NARRA and our plug-in, so I would like to propose a way how it might be realized in future.
+
+Sequence is structured way of describing which video clip should be taken and when it should be played on the timeline. One of the easiest and most popular ways to represent a sequence is to use \textbf{Edit decision list}.
+
+\textbf{EDL} is a file format that is widely used by video editors, it consists from reel and timecode data that represents when and where each video clip should be used. Example of EDL file:
+\begin{lstlisting}[caption=Part of EDL file, label=lst:lst_edl]
+007  A004C018 V     C        00:00:20:16 00:00:22:14 00:02:00:07 00:02:02:05
+* FROM CLIP NAME: A1B TK2
+ 
+008  B004C011 V     C        16:47:08:10 16:47:11:08 00:02:02:05 00:02:05:03
+* FROM CLIP NAME: B1B TK4
+\end{lstlisting}
+Adobe Premiere Pro provides a way to export and import EDL files, so we can use this possibility to synchronize sequences between our plug-in and NARRA. Basic scenario for sequence importing could be like this:
+	\begin{enumerate}
+		\item User double clicks on a sequence inside our application.
+		\item Default browser launches and downloading of a chosen sequence starts.
+		\item User imports downloaded EDL file using Adobe Premiere Pro built-in tools. 
+	\end{enumerate}
+In order to successfully import a sequence, all video clips that are used, have to be imported in advance, so that Adobe Premiere Pro can locate them.
+
+Exporting of a sequence can be done similar way. For example, user could just upload EDL file directly from our plug-in into NARRA.
+
+\section{Metadata}
+Each project, library and item inside NARRA has an attached metadata to it. In our case, I can describe metadata as a set of \texttt{attribute} - \texttt{value}, where each attribute represents some piece of infromation about given element. For example, each project has name and description.
+
+Set of metadata attributes is defined by vocabulary, one of the biggest vocabulary providers is \textbf{Dublin Core Metadata Initiative}.
+\subsection{Dublin Core metadata standard}
+The Dublin Core metadata standard is a simple yet effective element set for describing a wide range of networked resources.
+
+The Dublin Core standard includes two levels: Simple and Qualified. Simple Dublin Core comprises fifteen elements; Qualified Dublin Core includes three additional elements (Audience, Provenance and RightsHolder), as well as a group of element refinements (also called qualifiers) that refine the semantics of the elements in ways that may be useful in resource discovery. 
+
+The semantics of Dublin Core have been established by an international, cross-disciplinary group of professionals from librarianship, computer science, text encoding, the museum community, and other related fields of scholarship and practice.\cite{dublincore}
+
+\subsection{NARRA metadata element set}
+I would like to list metadata elements that are used by NARRA.
+
+Every item's metadata contains a set of the following attributes:
+	\begin{itemize}
+		\item type
+		\item name
+		\item url
+		\item library
+		\item author
+		\item thumbnail
+		\item video\_proxy\_lq
+		\item video\_proxy\_hq
+		\item size
+		\item duration
+		\item timecode
+		\item bitrate
+		\item video\_codec
+		\item colorspace
+		\item resolution
+		\item width
+		\item height
+		\item frame\_rate
+		\item audio\_codec
+		\item audio\_sample\_rate
+		\item audio\_channels
+		\item audio\_proxy
+	\end{itemize}
+To store metadata, Adobe Premiere Pro uses \textbf{Extensible Metadata Platform} standard. For each video footage, it creates \texttt{.xmp} file which specifies values for metadata elements. You can see a part of \texttt{.xmp} file in listing \ref{lst:xmp}.
+\begin{lstlisting}[caption=Part of XMP file, label=lst:xmp]
+<rdf:Description rdf:about=""
+    xmlns:tiff="http://ns.adobe.com/tiff/1.0/">
+   <tiff:Make>Canon</tiff:Make>
+   <tiff:Model>Canon EOS 450D</tiff:Model>
+   <tiff:Orientation>1</tiff:Orientation>
+   <tiff:ImageWidth>4272</tiff:ImageWidth>
+   <tiff:ImageLength>2848</tiff:ImageLength>
+  </rdf:Description>
+\end{lstlisting}
+\chapter{Paradigm shift}
+At first glance we thought that Creative Suite version of Adobe Premiere Pro with provided SDK will be enough to implement desired functionality of the plug-in, but we encountered a problem with operating multiple files in project bin. There is no possibility to realize correct importing of project files into Adobe Premiere Pro CS5.5, so we decided to completely shift our paradigm and choose different approach to problem solving. We understand that we lose the flexibility of C language and possibility of usage many different frameworks and libraries, but in order to realize our needs it is necessary.
+
+From this point we are switching from Adobe Premiere Pro CS5.5 version to CC 2014 version, that means:
+	\begin{itemize}
+		\item Adobe Premiere Pro SDK no longer needed, Panel SDK will be used.
+		\item We are switching from development in C to development in JavaScript and ExtendScript, because CC 2014 version of Adobe Premiere Pro uses Chromium web browser for execution of plug-ins.
+		\item All communication with Adobe Premiere Pro will be carried by ExtendScript functions.
+		\item We no longer need to make two separate plug-ins for importing and exporting libraries and items from NARRA. We are going to make it as a single plug-in that will be synchronizing elements on local machine with elements in NARRA storage. 
+	\end{itemize}
+\section{Adobe Premiere Pro CC}
+Creative Cloud (CC) version of Adobe products is the successor to Creative Suite that we chose as our working environment before encountering a problem. Adobe Premiere Pro CC allows us to use Panel SDK that provides much more functionality in comparison with SDK for Creative Suite version of video editing tool. 
+
+Adobe announced that it will no longer release any products of CS version\cite{CC}, so choosing CC we also looking to the future. 
+
+\subsection{Overview}
+Adobe Premiere Pro is a timeline-based video editing software application. It is part of the Adobe Creative Cloud, which includes video editing, graphic design, and web development programs.
+
+Premiere Pro has been used to edit feature films, such as Gone Girl, Captain Abu Raed, and Monsters, and other venues such as Madonna's Confessions Tour.\cite{adobe}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.1\textwidth]{PremiereMain.png}
+		\caption{Adobe Premiere Pro CS5.5 window}\label{fig:APPWindow}
+	\end{figure}
+\subsection{History}
+Premiere Pro is the redesigned successor to Adobe Premiere, and was launched in 2003. Premiere Pro refers to versions released in 2003 and later, whereas Premiere refers to the earlier releases. Premiere was one of the first computer-based NLEs (non-linear editing system), with its first release on Mac in 1991. Up until version Premiere Pro 2.0 (CS2), the software packaging featured a galloping horse, in a nod to Eadweard Muybridge's work, "Sallie Gardner at a Gallop".\cite{adobe}
+	
+Adobe Premiere Pro CC 2014 uses built-in web browser for executing plug-ins, so that means that we can use standard tools for web development to implement our plug-in.
+
+\section{ExtendScript}
+ExtendScript is a programming language, that is used for scripting Adobe products. We will use it as a layer between our plug-in and Adobe Premiere Pro since it can operate functions of this software directly. It has similar structure and syntax with JavaScript, but also very limited functionality. Extend script is a language that implemented according to Ecma standard, while JavaScript currently follows its own path and that creates troubles sometimes when we try to use them together. 
+\subsection{ECMAScript}
+This Ecma Standard is based on several originating technologies, the most well known being JavaScript (Netscape) and JScript (Microsoft). The language was invented by Brendan Eich at Netscape and first appeared in that company’s Navigator 2.0 browser. It has appeared in all subsequent browsers from Netscape and in all browsers from Microsoft starting with Internet Explorer 3.0.
+
+ECMAScript is an object-oriented programming language for performing computations and manipulating computational objects within a host environment. ECMAScript is not intended to be computationally self-sufficient; indeed, there are no provisions in this specification for input of external data or output of computed results. Instead, it is expected that the computational environment of an ECMAScript program will provide not only the objects and other facilities described in this specification but also certain environment-specific host objects, whose description and behaviour are beyond the scope of this specification except to indicate that they may provide certain properties that can be accessed and certain functions that can be called from an ECMAScript program.
+
+A \textbf{scripting language} is a programming language that is used to manipulate, customise, and automate the facilities of an existing system. In such systems, useful functionality is already available through a user interface, and the scripting language is a mechanism for exposing that functionality to program control. In this way, the existing system is said to provide a host environment of objects and facilities, which completes the capabilities of the scripting language. A scripting language is intended for use by both professional and non-professional programmers.
+
+	\begin{itemize}
+\item ECMAScript is object-based: basic language and host facilities are provided by objects, and an ECMAScript program is a cluster of communicating objects. An ECMAScript object is a collection of properties each with zero or more attributes that determine how each property can be used - for example, when the Writable attribute for a property is set to false, any attempt by executed ECMAScript code to change the value of the property fails. Properties are containers that hold other objects, primitive values, or functions. A primitive value is a member of one of the following built-in types: Undefined, Null, Boolean, Number, and String; an object is a member of the remaining built-in type Object; and a function is a callable object. A function that is associated with an object via a property is a method.
+\item ECMAScript defines a collection of built-in objects that round out the definition of ECMAScript entities. These built-in objects include the global object, the Object object, the Function object, the Array object, the String object, the Boolean object, the Number object, the Math object, the Date object, the RegExp object, the JSON object, and the Error objects Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError and URIError.
+\item ECMAScript also defines a set of built-in operators. ECMAScript operators include various unary operations, multiplicative operators, additive operators, bitwise shift operators, relational operators, equality operators, binary bitwise operators, binary logical operators, assignment operators, and the comma operator.
+\item ECMAScript syntax intentionally resembles Java syntax. ECMAScript syntax is relaxed to enable it to serve as an easy-to-use scripting language. For example, a variable is not required to have its type declared nor are types associated with properties, and defined functions are not required to have their declarations appear textually before calls to them.\cite{ecma}
+	\end{itemize}
+
 \chapter{Design}
 In this chapter I would like to describe process of designing user interface and structure of my application.
 \section{User interface}
@@ -635,7 +710,7 @@ Final design of a project list you can see on figure \ref{fig:projects}
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.9\textwidth]{libraries.png}
-		\caption{List of projects}\label{fig:projects}
+		\caption{List of libraries}\label{fig:libraries}
 	\end{figure}
 \subsection{List of items}
 To visualize a list of items I decided to use tiles. After playing with layouts, I figured out that four tiles in a row is the optimal amount, because it is big enough and utilizes space efficiently at the same time. Below every tile I placed name of the item. I will use the same layout for displaying search results.
@@ -723,24 +798,6 @@ As we can see, working with ExtendScript from JavaScript is not the most pleasan
 
 I decided to implement synchronization mechanism using \texttt{sync()} function that crawls through project bins and collects ID's of items inside them. After it, array of ID's is returned back to our panel and processed by JavaScript, for each ID AJAX request is sent to NARRA to get information about each item inside project bin. After all information about items is received, array of item names is passed back to ExtendScript function \texttt{renameFootage()}, which renames items according to their names in NARRA.
 
-\subsection{Sequence import}
-Currently NARRA is still in development and many features and functions are not implemented yet, lates build doesn't provide a possibility to synchronize sequences between NARRA and our plug-in, so I would like to propose a way how it might be realized in future.
-
-\textbf{EDL} is a file format that is widely used by video editors, it consists from reel and timecode data that represents when and where each video clip should be used. Example of EDL file:
-\begin{lstlisting}[caption=Part of EDL file, label=lst:lst_edl]
-007  A004C018 V     C        00:00:20:16 00:00:22:14 00:02:00:07 00:02:02:05
-* FROM CLIP NAME: A1B TK2
- 
-008  B004C011 V     C        16:47:08:10 16:47:11:08 00:02:02:05 00:02:05:03
-* FROM CLIP NAME: B1B TK4
-\end{lstlisting}
-Adobe Premiere Pro provides a way to export and import EDL files, so we can use this possibility to synchronize sequences between our plug-in and NARRA. Basic scenario for sequence importing could be like this:
-	\begin{enumerate}
-		\item User double clicks on a sequence inside our application.
-		\item Default browser launches and downloading of a chosen sequence starts.
-		\item User imports downloaded EDL file using Adobe Premiere Pro built-in tools. 
-	\end{enumerate}
-In order to successfully import a sequence, all video clips that are used, have to be imported in advance.
 \chapter{Testing}
 Tests are very important in software engineering process, they demonstrate if application met the requirements and help in revealing problems and bugs.
 
