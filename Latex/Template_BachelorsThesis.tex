@@ -848,8 +848,75 @@ This project tought me how to quickly find solutions for arising problems, lack 
 \appendix
 
 \chapter{User guide}
+\section{Installation}
+In order to install this plug-in you need:
+	\begin{itemize}
+		\item Adobe Premiere Pro CC (\url{https://www.adobe.com/products/premiere.html})
+		\item Adobe Extension Manager CC (\url{https://creative.adobe.com/products/extension-manager})
+		\item NARRA.zxp installation package
+	\end{itemize}
+Installation process:
+	\begin{enumerate}
+		\item First install Adobe Premiere Pro CC and Adobe Extension Manager according to instructions, provided by Adobe.
+		\item Navigate to a folder, containing NARRA.zxp installation package.
+		\item Execute NARRA.zxp file, Adobe Extension Manager should open.
+		\item Follow instructions on the screen.
+	\end{enumerate}
+\section{Starting the plug-in}
+After successful installation, you can launch the plug-in by clicking on "Window/Extensions/Narra access" menu inside Adobe Premiere Pro CC.
 
+\section{Using the plug-in}
+\subsection{Login}
+This action will allow you to use other functions of this plug-in. You can see login screen on figure \ref{fig:login}.
 
+In order to login you need:
+	\begin{enumerate}
+		\item If you want to login using your Google account click "Login with Google" button, if you want to login using your Github account click "Login with Github" button.
+		\item Default web browser will open, follow on-screen instructions.
+		\item After successful authorization you will see similar message in a browser window: \texttt{\{"status":"OK","token":"MTRzNjc2MhAxNDYzORk0NTgwAjUv"\}}.
+		\item Copy token value without quotes (MTRzNjc2MhAxNDYzORk0NTgwAjUv).
+		\item Paste this value into the "Enter your token" input field on the login screen of the plug-in and click "Login" button.
+	\end{enumerate}
+\subsection{Logout}
+This action will sign you out from the plug-in and redirect you to login screen.
+
+In order to logout you need to click "Logout" button in the right-upper corner of the plug-in window.
+\subsection{List accessible projects}
+This action will display all accessible project for currently logged in user.
+
+In order to list all accessible projects, click "Projects" button in the menu bar. You can see menu bar on figure \ref{fig:projects}
+\subsection{List all accessible libraries}
+This action will display all accessible libraries for currently logged in user.
+
+In order to list all accessible libraries, click "Libraries" button in the menu bar. You can see menu bar on figure \ref{fig:projects}
+\subsection{List accessible project libraries}
+This action will display all accessible libraries for currently logged in user from a chosen project.
+
+In order to do this you need:
+	\begin{enumerate}
+		\item Navigate to project list.
+		\item Click on desired project from project list, you will see all accessible libraries from the chosen project.
+	\end{enumerate}
+\subsection{List accessible items from a chosen library}
+This action will display all accessible items from a chosen library.
+
+In order to do this you need:
+	\begin{enumerate}
+		\item Navigate to a list of libraries.
+		\item Click on desired library, you will see all accessible items corresponding to that library.
+	\end{enumerate}
+\subsection{Access item's description}
+This action will display an item's description in the default browser's window.
+
+In order to do this you need to double-click on the desired item, default browser will open and display all information about selected item.
+\subsection{Item import}
+
+\subsection{Item search}
+
+\subsection{Synchronization of metadata}
+This action will synchronize metadata of items inside Adobe Premiere Pro CC project bin.
+
+In order to this you need to click red "sync" button in the lower right corner.
 \chapter{Acronyms}
 % \printglossaries
 \begin{description}

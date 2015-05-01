@@ -44,5 +44,18 @@
 \contentsline {chapter}{Conclusion}{43}{chapter*.6}
 \contentsline {chapter}{Bibliography}{45}{section*.8}
 \contentsline {appendix}{\chapternumberline {A}User guide}{47}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Acronyms}{49}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Contents of enclosed CD}{51}{appendix.C}
+\contentsline {section}{\numberline {A.1}Installation}{47}{section.A.1}
+\contentsline {section}{\numberline {A.2}Starting the plug-in}{47}{section.A.2}
+\contentsline {section}{\numberline {A.3}Using the plug-in}{48}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}Login}{48}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Logout}{48}{subsection.A.3.2}
+\contentsline {subsection}{\numberline {A.3.3}List accessible projects}{48}{subsection.A.3.3}
+\contentsline {subsection}{\numberline {A.3.4}List all accessible libraries}{48}{subsection.A.3.4}
+\contentsline {subsection}{\numberline {A.3.5}List accessible project libraries}{49}{subsection.A.3.5}
+\contentsline {subsection}{\numberline {A.3.6}List accessible items from a chosen library}{49}{subsection.A.3.6}
+\contentsline {subsection}{\numberline {A.3.7}Access item's description}{49}{subsection.A.3.7}
+\contentsline {subsection}{\numberline {A.3.8}Item import}{49}{subsection.A.3.8}
+\contentsline {subsection}{\numberline {A.3.9}Item search}{49}{subsection.A.3.9}
+\contentsline {subsection}{\numberline {A.3.10}Synchronization of metadata}{49}{subsection.A.3.10}
+\contentsline {appendix}{\chapternumberline {B}Acronyms}{51}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Contents of enclosed CD}{53}{appendix.C}

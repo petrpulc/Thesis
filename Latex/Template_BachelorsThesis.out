@@ -40,5 +40,18 @@
 \BOOKMARK [0][-]{chapter*.6}{Conclusion}{}% 40
 \BOOKMARK [0][-]{section*.8}{Bibliography}{}% 41
 \BOOKMARK [0][-]{appendix.A}{User guide}{}% 42
-\BOOKMARK [0][-]{appendix.B}{Acronyms}{}% 43
-\BOOKMARK [0][-]{appendix.C}{Contents of enclosed CD}{}% 44
+\BOOKMARK [1][-]{section.A.1}{Installation}{appendix.A}% 43
+\BOOKMARK [1][-]{section.A.2}{Starting the plug-in}{appendix.A}% 44
+\BOOKMARK [1][-]{section.A.3}{Using the plug-in}{appendix.A}% 45
+\BOOKMARK [2][-]{subsection.A.3.1}{Login}{section.A.3}% 46
+\BOOKMARK [2][-]{subsection.A.3.2}{Logout}{section.A.3}% 47
+\BOOKMARK [2][-]{subsection.A.3.3}{List accessible projects}{section.A.3}% 48
+\BOOKMARK [2][-]{subsection.A.3.4}{List all accessible libraries}{section.A.3}% 49
+\BOOKMARK [2][-]{subsection.A.3.5}{List accessible project libraries}{section.A.3}% 50
+\BOOKMARK [2][-]{subsection.A.3.6}{List accessible items from a chosen library}{section.A.3}% 51
+\BOOKMARK [2][-]{subsection.A.3.7}{Access item's description}{section.A.3}% 52
+\BOOKMARK [2][-]{subsection.A.3.8}{Item import}{section.A.3}% 53
+\BOOKMARK [2][-]{subsection.A.3.9}{Item search}{section.A.3}% 54
+\BOOKMARK [2][-]{subsection.A.3.10}{Synchronization of metadata}{section.A.3}% 55
+\BOOKMARK [0][-]{appendix.B}{Acronyms}{}% 56
+\BOOKMARK [0][-]{appendix.C}{Contents of enclosed CD}{}% 57
